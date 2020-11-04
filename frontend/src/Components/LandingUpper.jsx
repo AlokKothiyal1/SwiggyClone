@@ -105,67 +105,52 @@ const NewLanding = () => {
                                 <div className='col text-left text-wrap mb-1 text-uppercase h6 text-muted '>
                                     Popular cities in India
                                 </div>
-                                <div className='col text-left text-wrap'>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold'
+                                {/* </div> */}
+                                <div
+                                    className='container'
+                                    style={{
+                                        marginLeft: '0px',
+                                    }}
+                                >
+                                    {/* <div className='row'> */}
+                                    <ul
+                                        class='list-inline'
+                                        style={{
+                                            marginLeft: '0px',
+                                            border: '1px solid red',
+                                            textAlign: 'left',
+                                        }}
                                     >
-                                        Ahmedabad
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold text-muted'
-                                    >
-                                        Bangalore
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold'
-                                    >
-                                        Chennai
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold text-muted'
-                                    >
-                                        Delhi
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold'
-                                    >
-                                        Gurgaon
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold text-muted'
-                                    >
-                                        Hyderabad
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold'
-                                    >
-                                        Kolkata
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold text-muted'
-                                    >
-                                        Mumbai
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold'
-                                    >
-                                        Pune
-                                    </button>
-                                    <button
-                                        type='button'
-                                        className='btn font-weight-bold text-muted'
-                                    >
-                                        &more.
-                                    </button>
+                                        <li
+                                            class='list-inline-item'
+                                            style={{
+                                                marginLeft: '0px',
+                                                border: '1px solid red',
+                                            }}
+                                        >
+                                            Ahmedabad
+                                        </li>
+                                        <li class='list-inline-item'>
+                                            Bangalore
+                                        </li>
+                                        <li class='list-inline-item'>
+                                            Chennai
+                                        </li>
+                                        <li class='list-inline-item'>Delhi</li>
+                                        <li class='list-inline-item'>
+                                            Gurgaon
+                                        </li>
+                                        <li class='list-inline-item'>
+                                            Hyderabad
+                                        </li>
+                                        <li class='list-inline-item'>
+                                            Kolkata
+                                        </li>
+                                        <li class='list-inline-item'>Mumbai</li>
+                                        <br />
+                                        <li class='list-inline-item'>Pune</li>
+                                        <li class='list-inline-item'>&more</li>
+                                    </ul>
                                 </div>
                             </div>
                         </City>
