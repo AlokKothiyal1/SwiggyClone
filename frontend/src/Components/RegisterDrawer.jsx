@@ -18,7 +18,7 @@ const useStyles = makeStyles({
   },
 });
 
-export default function LoginDrawer() {
+export default function RegisterDrawer() {
   const classes = useStyles();
   const [state, setState] = React.useState({
     bottom: false,
@@ -56,7 +56,7 @@ export default function LoginDrawer() {
             <div className="container mt-2">
               <div className="row">
                 <div className="col-lg-5 ml-3">
-                  <h3>Login</h3>
+                  <h3>Sign up</h3>
                   <small>
                     or <b style={{ color: "#fc8019" }}>create an account</b>
                   </small>
@@ -87,6 +87,48 @@ export default function LoginDrawer() {
                       style={{ marginLeft: "0px", borderRadius: "0px" }}
                     />
                   </div>
+                  <div className="col-lg-12">
+                    <TextField
+                      id="outlined-textarea"
+                      label="Name"
+                      placeholder=""
+                      fullWidth
+                      variant="outlined"
+                      style={{ marginLeft: "0px", borderRadius: "0px" }}
+                    />
+                  </div>
+                  <div className="col-lg-12">
+                    <TextField
+                      id="outlined-textarea"
+                      label="Email"
+                      placeholder=""
+                      fullWidth
+                      variant="outlined"
+                      style={{ marginLeft: "0px", borderRadius: "0px" }}
+                    />
+                  </div>
+                  <div className="col-lg-12">
+                    <TextField
+                      id="outlined-textarea"
+                      label="Password"
+                      placeholder=""
+                      fullWidth
+                      variant="outlined"
+                      style={{ marginLeft: "0px", borderRadius: "0px" }}
+                    />
+                  </div>
+                  <div className="col-lg-12 mt-3">
+                    <small
+                      style={{
+                        color: "#5d8ed5",
+                        marginLeft: "1%",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      Have a referral code
+                    </small>
+                  </div>
+
                   <div className="col-lg-12 text-center">
                     <button
                       style={{
@@ -99,9 +141,26 @@ export default function LoginDrawer() {
                       }}
                     >
                       <p style={{ fontWeight: "bold", marginTop: "9px" }}>
-                        LOGIN
+                        CONTINUE
                       </p>
                     </button>
+                  </div>
+                  <div>
+                    <small
+                      style={{ fontSize: "9px", fontWeight: "bold" }}
+                      className="text-muted mx-2"
+                    >
+                      By creating an account, I accept the{" "}
+                      <small
+                        style={{
+                          color: "#5d8ed5",
+                          fontSize: "9px",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Terms & Conditions
+                      </small>
+                    </small>
                   </div>
                 </div>
               </div>
@@ -120,8 +179,13 @@ export default function LoginDrawer() {
             type="button"
             className=" btn btn-lg align-self-center font-weight-bold"
             onClick={toggleDrawer(anchor, true)}
+            style={{
+              borderRadius: "0px",
+              color: "white",
+              backgroundColor: "black",
+            }}
           >
-            {"Login"}
+            {"Sign up"}
           </button>
           <Drawer
             anchor={anchor}
