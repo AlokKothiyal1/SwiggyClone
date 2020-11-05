@@ -13,12 +13,14 @@ import {
 import axios from 'axios';
 import { TextField } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
+import LoginDrawer from './LoginDrawer';
 
 export class LandingUpper extends Component {
     constructor(props) {
         super(props);
         this.state = {
             data: [],
+            visible: false,
         };
     }
 
@@ -57,12 +59,10 @@ export class LandingUpper extends Component {
                                             alt='logo'
                                         />
                                     </div>
-                                    <button
-                                        type='button'
-                                        className='col-2 btn btn-lg align-self-center font-weight-bold'
-                                    >
-                                        Login
-                                    </button>
+                                    <div className='col-2 btn btn-lg align-self-center font-weight-bold'>
+                                        <LoginDrawer />
+                                        {/* Login */}
+                                    </div>
                                     <button
                                         type='button'
                                         className='col-2 btn btn-lg align-self-center p-2 font-weight-bold'
@@ -101,7 +101,7 @@ export class LandingUpper extends Component {
                                     <div className='col-10 text-left align-self-center'>
                                         <div className='row'>
                                             <Autocomplete
-                                                className='col-9 mr-0  text-left form-control-plaintext form-control-lg ml-2  text-muted font-weight-bold'
+                                                className='col-lg-9 col-md-8 col-sm-8 mr-0  text-left form-control-plaintext form-control-lg ml-2  text-muted font-weight-bold'
                                                 freeSolo
                                                 id='free-solo-2-demo'
                                                 disableClearable
@@ -133,7 +133,7 @@ export class LandingUpper extends Component {
                                             />
                                             <button
                                                 type='button'
-                                                className='col-2 btn btn-sm align-self-center text-right ml-4'
+                                                className='col-2  btn btn-sm align-self-center text-right ml-4'
                                             >
                                                 Locate Me
                                             </button>
@@ -169,46 +169,46 @@ export class LandingUpper extends Component {
                                         }}
                                     >
                                         <ul
-                                            class='list-inline'
+                                            className='list-inline'
                                             style={{
                                                 marginLeft: '0px',
                                                 textAlign: 'left',
                                             }}
                                         >
                                             <li
-                                                class='list-inline-item font-weight-bold'
+                                                className='list-inline-item font-weight-bold'
                                                 style={{
                                                     marginLeft: '0px',
                                                 }}
                                             >
                                                 Ahmedabad
                                             </li>
-                                            <li class='list-inline-item font-weight-bold text-muted'>
+                                            <li className='list-inline-item font-weight-bold text-muted'>
                                                 Bangalore
                                             </li>
-                                            <li class='list-inline-item font-weight-bold'>
+                                            <li className='list-inline-item font-weight-bold'>
                                                 Chennai
                                             </li>
-                                            <li class='list-inline-item font-weight-bold text-muted'>
+                                            <li className='list-inline-item font-weight-bold text-muted'>
                                                 Delhi
                                             </li>
-                                            <li class='list-inline-item font-weight-bold'>
+                                            <li className='list-inline-item font-weight-bold'>
                                                 Gurgaon
                                             </li>
-                                            <li class='list-inline-item font-weight-bold text-muted'>
+                                            <li className='list-inline-item font-weight-bold text-muted'>
                                                 Hyderabad
                                             </li>
-                                            <li class='list-inline-item font-weight-bold'>
+                                            <li className='list-inline-item font-weight-bold'>
                                                 Kolkata
                                             </li>
-                                            <li class='list-inline-item font-weight-bold text-muted'>
+                                            <li className='list-inline-item font-weight-bold text-muted'>
                                                 Mumbai
                                             </li>
                                             <br />
-                                            <li class='list-inline-item font-weight-bold'>
+                                            <li className='list-inline-item font-weight-bold'>
                                                 Pune
                                             </li>
-                                            <li class='list-inline-item font-weight-bold text-muted'>
+                                            <li className='list-inline-item font-weight-bold text-muted'>
                                                 &more
                                             </li>
                                         </ul>

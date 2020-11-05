@@ -36,7 +36,7 @@ export const City = styled.div`
 
 export const MainImg = styled.img`
     height: 540px;
-    width: 620px;
+    width: 630px;
 `;
 
 export const Logo = styled.img`
