@@ -1,16 +1,12 @@
-import LandingUpper from "./Components/LandingUpper";
-import "./App.css";
-import Footer from "./Components/Footer";
-import MainFooter from "./Components/MainFooter";
+import './App.css';
+import LandingPg from './Components/LandingPg';
 
 function App() {
-  return (
-    <div className="App">
-      <LandingUpper />
-      <Footer />
-      <MainFooter />
-    </div>
-  );
+    return (
+        <div className='App'>
+            <LandingPg />
+        </div>
+    );
 }
 
 export default App;
