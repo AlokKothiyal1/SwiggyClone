@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
+import axios from 'axios';
 
 const Div = styled.div`
     font-family: sans-serif;
@@ -20,6 +21,10 @@ const useStyles = makeStyles({
 
 export default function RegisterDrawer() {
     const classes = useStyles();
+    const [phNo, setPhNo] = useState('');
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
     const [state, setState] = React.useState({
         bottom: false,
     });
@@ -35,6 +40,28 @@ export default function RegisterDrawer() {
         setState({ ...state, [anchor]: open });
     };
 
+    const handleNewUser = (anchor, e) => {
+        console.log(e, e.type);
+        console.log(phNo, name, email, password);
+        axios
+            .post('http://localhost:5000/api/customer/register', {
+                phoneNumber: phNo,
+                name: name,
+                email: email,
+                password: password,
+            })
+            .then((res) => {
+                console.log(res);
+                alert(res);
+                alert('New Customer Registered successfully');
+                setState({ ...state, [anchor]: false });
+            })
+            .catch((err) => {
+                console.log(err);
+                alert(err);
+            });
+    };
+
     const list = (anchor) => (
         <div
             className={clsx(classes.list, {
@@ -43,7 +70,7 @@ export default function RegisterDrawer() {
             style={{ right: 0 }}
             role='presentation'
         >
-            <Div className='container' style={{ width: '90%' }}>
+            <Div className='container mt-3' style={{ width: '90%' }}>
                 <Div className='row'>
                     <Div className='col text-left'>
                         <button
@@ -51,20 +78,20 @@ export default function RegisterDrawer() {
                             className='btn btn-sm'
                             onClick={toggleDrawer(anchor, false)}
                         >
-                            X
+                            <i className='fas fa-times fa-lg'></i>
                         </button>
                         <div className='container mt-2'>
                             <div className='row'>
-                                <div className='col-lg-5 ml-3'>
+                                <div className='col-lg-6 ml-3'>
                                     <h3>Sign up</h3>
                                     <small>
                                         or{' '}
                                         <b style={{ color: '#fc8019' }}>
-                                            create an account
+                                            login to your account
                                         </b>
                                     </small>
                                 </div>
-                                <div className='col-lg-5 ml-4'>
+                                <div className='col-lg-4 ml-3'>
                                     <img
                                         className='img-fluid'
                                         style={{
@@ -82,7 +109,7 @@ export default function RegisterDrawer() {
                                 <div className='row'>
                                     <div className='col-lg-12'>
                                         <TextField
-                                            id='outlined-textarea'
+                                            // id='outlined-textarea'
                                             label='Phone Number'
                                             placeholder=''
                                             fullWidth
@@ -91,11 +118,14 @@ export default function RegisterDrawer() {
                                                 marginLeft: '0px',
                                                 borderRadius: '0px',
                                             }}
+                                            onChange={(e) => {
+                                                setPhNo(e.target.value);
+                                            }}
                                         />
                                     </div>
                                     <div className='col-lg-12'>
                                         <TextField
-                                            id='outlined-textarea'
+                                            // id='outlined-textarea'
                                             label='Name'
                                             placeholder=''
                                             fullWidth
@@ -104,11 +134,14 @@ export default function RegisterDrawer() {
                                                 marginLeft: '0px',
                                                 borderRadius: '0px',
                                             }}
+                                            onChange={(e) => {
+                                                setName(e.target.value);
+                                            }}
                                         />
                                     </div>
                                     <div className='col-lg-12'>
                                         <TextField
-                                            id='outlined-textarea'
+                                            // id='outlined-textarea'
                                             label='Email'
                                             placeholder=''
                                             fullWidth
@@ -117,11 +150,14 @@ export default function RegisterDrawer() {
                                                 marginLeft: '0px',
                                                 borderRadius: '0px',
                                             }}
+                                            onChange={(e) => {
+                                                setEmail(e.target.value);
+                                            }}
                                         />
                                     </div>
                                     <div className='col-lg-12'>
                                         <TextField
-                                            id='outlined-textarea'
+                                            // id='outlined-textarea'
                                             label='Password'
                                             placeholder=''
                                             fullWidth
@@ -129,6 +165,9 @@ export default function RegisterDrawer() {
                                             style={{
                                                 marginLeft: '0px',
                                                 borderRadius: '0px',
+                                            }}
+                                            onChange={(e) => {
+                                                setPassword(e.target.value);
                                             }}
                                         />
                                     </div>
@@ -153,6 +192,9 @@ export default function RegisterDrawer() {
                                                 marginTop: '15px',
                                                 width: '318px',
                                                 borderRadius: '2%',
+                                            }}
+                                            onClick={(e) => {
+                                                handleNewUser('right', e);
                                             }}
                                         >
                                             <p
