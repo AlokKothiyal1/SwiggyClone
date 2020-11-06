@@ -32,6 +32,9 @@ export const Search = styled.div`
 export const City = styled.div`
     overflow: visible;
     margin-top: 4%;
+    li {
+        cursor: pointer;
+    }
 `;
 
 export const MainImg = styled.img`

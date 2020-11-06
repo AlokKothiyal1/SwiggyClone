@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const Div = styled.div`
     font-family: sans-serif;
@@ -99,7 +100,11 @@ export default function LoginDrawer() {
                                         />
                                     </div>
                                     <div className='col-lg-12 text-center'>
-                                        <OtpDrawer phoneNumber={phoneNumber} />
+                                        <OtpDrawer
+                                            phoneNumber={phoneNumber}
+                                            setState={setState}
+                                            state={state}
+                                        />
                                     </div>
                                 </div>
                             </div>
@@ -130,7 +135,8 @@ export default function LoginDrawer() {
     );
 }
 
-function OtpDrawer({ phoneNumber }) {
+function OtpDrawer({ phoneNumber, setState, state }) {
+    const history = useHistory();
     const [otp, setOtp] = useState('');
     const classes = useStyles();
     const [state2, setState2] = React.useState({
@@ -150,6 +156,39 @@ function OtpDrawer({ phoneNumber }) {
 
     const handleVerify = () => {
         console.log(phoneNumber, otp);
+        console.log(setState, state);
+        axios
+            .post('http://localhost:5000/api/customer/login/verify', {
+                phoneNumber: phoneNumber,
+                otp: otp,
+            })
+            .then((res) => {
+                console.log(res);
+                alert('Login Successfull');
+                setState2({ ...state2, right: false });
+                setState({ ...state, right: false });
+                history.push('/Restaurants');
+            })
+            .catch((err) => {
+                console.log(err.response.data);
+                alert(err.response.data);
+            });
+    };
+
+    const getOtp = () => {
+        axios
+            .post('http://localhost:5000/api/customer/login', {
+                phoneNumber: phoneNumber,
+            })
+            .then((res) => {
+                console.log(res);
+                alert('OTP have been sent Customer Phone Number');
+                setState2({ ...state2, right: true });
+            })
+            .catch((err) => {
+                console.log(err.response.data);
+                alert(err.response.data);
+            });
     };
 
     const list = (anchor) => (
@@ -265,7 +304,7 @@ function OtpDrawer({ phoneNumber }) {
                     width: '318px',
                     borderRadius: '2%',
                 }}
-                onClick={toggleOTPDrawer('right', true)}
+                onClick={getOtp}
             >
                 <p
                     style={{
