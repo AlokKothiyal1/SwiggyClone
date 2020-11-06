@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import Navigator from './Navigator';
+import Promotions from './Promotions';
 
 export class Restaurants extends Component {
     render() {
         return (
             <div>
-                <h1>RESTAURANTS</h1>
+                <Navigator />
+                <Promotions />
             </div>
         );
     }
