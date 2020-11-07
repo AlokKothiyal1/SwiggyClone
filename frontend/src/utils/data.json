@@ -1,0 +1,257 @@
+{
+    "current": [
+        {
+            "_id": "5fa54135c07b3f758e9b5e0a",
+            "cuisines": ["Burgers", "Pizzas", "Snacks"],
+            "name": "Susie's Burgers",
+            "rating": 4.1,
+            "average_cost": 300,
+            "average_time": 38,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/nlr1ywbavthnfijomq1h",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54135c07b3f758e9b5e0b",
+                "coordinates": [77.621807, 12.947068]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2359.379218370961
+        },
+        {
+            "_id": "5fa54123c07b3f758e9b5e08",
+            "cuisines": ["Home Food", "South Indian", "North Indian"],
+            "name": "HomeSe Just Veg",
+            "rating": 4.3,
+            "average_cost": 150,
+            "average_time": 28,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/oqeiv5ymgoktmvfzvyi9",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54123c07b3f758e9b5e09",
+                "coordinates": [77.621303, 12.947904]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2455.5801671254835
+        },
+        {
+            "_id": "5fa54142c07b3f758e9b5e0c",
+            "cuisines": ["Fast Food"],
+            "name": "Burger.in",
+            "rating": 3.9,
+            "average_cost": 200,
+            "average_time": 64,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/zsjqhq6hgoejb0voxnsx",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54142c07b3f758e9b5e0d",
+                "coordinates": [77.61964, 12.947936]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2478.3890891574415
+        },
+        {
+            "_id": "5fa54135c07b3f758e9b5e0a",
+            "cuisines": ["Burgers", "Pizzas", "Snacks"],
+            "name": "Susie's Burgers",
+            "rating": 4.1,
+            "average_cost": 300,
+            "average_time": 38,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/nlr1ywbavthnfijomq1h",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54135c07b3f758e9b5e0b",
+                "coordinates": [77.621807, 12.947068]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2359.379218370961
+        },
+        {
+            "_id": "5fa54123c07b3f758e9b5e08",
+            "cuisines": ["Home Food", "South Indian", "North Indian"],
+            "name": "HomeSe Just Veg",
+            "rating": 4.3,
+            "average_cost": 150,
+            "average_time": 28,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/oqeiv5ymgoktmvfzvyi9",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54123c07b3f758e9b5e09",
+                "coordinates": [77.621303, 12.947904]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2455.5801671254835
+        },
+        {
+            "_id": "5fa54142c07b3f758e9b5e0c",
+            "cuisines": ["Fast Food"],
+            "name": "Burger.in",
+            "rating": 3.9,
+            "average_cost": 200,
+            "average_time": 64,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/zsjqhq6hgoejb0voxnsx",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54142c07b3f758e9b5e0d",
+                "coordinates": [77.61964, 12.947936]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2478.3890891574415
+        },
+        {
+            "_id": "5fa54135c07b3f758e9b5e0a",
+            "cuisines": ["Burgers", "Pizzas", "Snacks"],
+            "name": "Susie's Burgers",
+            "rating": 4.1,
+            "average_cost": 300,
+            "average_time": 38,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/nlr1ywbavthnfijomq1h",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54135c07b3f758e9b5e0b",
+                "coordinates": [77.621807, 12.947068]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2359.379218370961
+        },
+        {
+            "_id": "5fa54123c07b3f758e9b5e08",
+            "cuisines": ["Home Food", "South Indian", "North Indian"],
+            "name": "HomeSe Just Veg",
+            "rating": 4.3,
+            "average_cost": 150,
+            "average_time": 28,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/oqeiv5ymgoktmvfzvyi9",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54123c07b3f758e9b5e09",
+                "coordinates": [77.621303, 12.947904]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2455.5801671254835
+        },
+        {
+            "_id": "5fa54142c07b3f758e9b5e0c",
+            "cuisines": ["Fast Food"],
+            "name": "Burger.in",
+            "rating": 3.9,
+            "average_cost": 200,
+            "average_time": 64,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/zsjqhq6hgoejb0voxnsx",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54142c07b3f758e9b5e0d",
+                "coordinates": [77.61964, 12.947936]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2478.3890891574415
+        },
+        {
+            "_id": "5fa54135c07b3f758e9b5e0a",
+            "cuisines": ["Burgers", "Pizzas", "Snacks"],
+            "name": "Susie's Burgers",
+            "rating": 4.1,
+            "average_cost": 300,
+            "average_time": 38,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/nlr1ywbavthnfijomq1h",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54135c07b3f758e9b5e0b",
+                "coordinates": [77.621807, 12.947068]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2359.379218370961
+        },
+        {
+            "_id": "5fa54123c07b3f758e9b5e08",
+            "cuisines": ["Home Food", "South Indian", "North Indian"],
+            "name": "HomeSe Just Veg",
+            "rating": 4.3,
+            "average_cost": 150,
+            "average_time": 28,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/oqeiv5ymgoktmvfzvyi9",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54123c07b3f758e9b5e09",
+                "coordinates": [77.621303, 12.947904]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2455.5801671254835
+        },
+        {
+            "_id": "5fa54142c07b3f758e9b5e0c",
+            "cuisines": ["Fast Food"],
+            "name": "Burger.in",
+            "rating": 3.9,
+            "average_cost": 200,
+            "average_time": 64,
+            "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/zsjqhq6hgoejb0voxnsx",
+            "veg": true,
+            "top_pick": true,
+            "exclusive": true,
+            "newly_added": true,
+            "geometry": {
+                "type": "Point",
+                "_id": "5fa54142c07b3f758e9b5e0d",
+                "coordinates": [77.61964, 12.947936]
+            },
+            "items": [],
+            "__v": 0,
+            "dis": 2478.3890891574415
+        }
+    ],
+    "total": 3
+}
