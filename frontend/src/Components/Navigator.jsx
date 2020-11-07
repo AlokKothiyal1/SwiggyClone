@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   }
 
   .nav-item {
-    padding: 10px 20px;
+    padding: 10px 10px;
     .nav-link {
       text-decoration: none;
       color: #333;
