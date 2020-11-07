@@ -1,14 +1,12 @@
-import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import Home from "./Components/Home";
-import LandingPg from "./Components/LandingPg";
+// import LandingPg from './Components/LandingPg';
+import { Routes } from "./Routes/Routes";
 
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <LandingPg />
-      </BrowserRouter>
+      {/* <LandingPg /> */}
+      <Routes />
     </div>
   );
 }
