@@ -1,7 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+//geo schema
+const geoSchema = new Schema({
+    type:{
+        type:String,
+        default:"Point"
+    },
+    coordinates:{
+        type:[Number],
+        index:"2dsphere"
+    }
+})
+
+
+//item schema
 const itemSchema = new Schema({
+    category:{
+        type:String,
+        required:true
+    },
     price:{
         type:Number,
         required:true
@@ -42,12 +60,11 @@ const restaurantSchema = new Schema({
         required:true
     },
     cuisines:{
-
-    },
-    location:{
         type:Array,
         required:true
     },
+    geometry:geoSchema,
+    
     img_url:{
         type:String,
         required:true
