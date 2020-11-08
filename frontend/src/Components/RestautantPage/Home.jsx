@@ -3,6 +3,7 @@ import Navigator from "./Navigator";
 import Promotions from "./Promotions";
 import SideMenu from "./SideMenu";
 import HotelCard from "./HotelCard";
+import Sidebar from "./Sidebar";
 const data = require("../../utils/data.json");
 
 // console.log(data.current);
