@@ -16,6 +16,10 @@ const Div = styled.div`
     border: 1px solid #d3d5df;
     box-shadow: 0 4px 7px 0 rgba(218, 220, 230, 0.6);
   }
+  .offer {
+    font-size: 14px;
+    line-height: 1.2;
+  }
 `;
 
 const Tag = styled.p`
@@ -82,7 +86,7 @@ const HotelCard = (props) => {
               </span>
               <div className="dropdown-divider"></div>
               <p
-                className="font-weight-normal"
+                className="font-weight-normal offer"
                 style={{ color: "#8a584b", marginTop: "15px" }}
               >
                 <img
