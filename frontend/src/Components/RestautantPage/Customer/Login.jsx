@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
-import { useHistory } from 'react-router-dom';
+import SignUp from './SignUp';
 
 const Div = styled.div`
     font-family: sans-serif;
@@ -20,13 +21,10 @@ const useStyles = makeStyles({
     },
 });
 
-export default function RegisterDrawer() {
+export default function LoginDrawer() {
+    const [phoneNumber, setPhoneNumber] = useState('');
     const classes = useStyles();
-    const [phNo, setPhNo] = useState('');
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [state, setState] = React.useState({
+    const [state, setState] = useState({
         bottom: false,
     });
 
@@ -61,16 +59,18 @@ export default function RegisterDrawer() {
                         </button>
                         <div className='container mt-2'>
                             <div className='row'>
-                                <div className='col-lg-6 ml-3'>
-                                    <h3>Sign up</h3>
-                                    <small>
-                                        or{' '}
-                                        <b style={{ color: '#fc8019' }}>
-                                            login to your account
-                                        </b>
-                                    </small>
+                                <div className='ml-3 col'>
+                                    <h3>Login</h3>
+                                    <div className='row'>
+                                        <div className='col-1'>
+                                            <small>or </small>
+                                        </div>
+                                        <div className='col align-self-start text-left'>
+                                            <SignUp />
+                                        </div>
+                                    </div>
                                 </div>
-                                <div className='col-lg-4 ml-3'>
+                                <div className='col-lg-5 ml-0'>
                                     <img
                                         className='img-fluid'
                                         style={{
@@ -88,6 +88,7 @@ export default function RegisterDrawer() {
                                 <div className='row'>
                                     <div className='col-lg-12'>
                                         <TextField
+                                            id='outlined-textarea'
                                             label='Phone Number'
                                             placeholder=''
                                             fullWidth
@@ -97,96 +98,16 @@ export default function RegisterDrawer() {
                                                 borderRadius: '0px',
                                             }}
                                             onChange={(e) => {
-                                                setPhNo(e.target.value);
+                                                setPhoneNumber(e.target.value);
                                             }}
                                         />
                                     </div>
-                                    <div className='col-lg-12'>
-                                        <TextField
-                                            label='Name'
-                                            placeholder=''
-                                            fullWidth
-                                            variant='outlined'
-                                            style={{
-                                                marginLeft: '0px',
-                                                borderRadius: '0px',
-                                            }}
-                                            onChange={(e) => {
-                                                setName(e.target.value);
-                                            }}
-                                        />
-                                    </div>
-                                    <div className='col-lg-12'>
-                                        <TextField
-                                            label='Email'
-                                            placeholder=''
-                                            fullWidth
-                                            variant='outlined'
-                                            style={{
-                                                marginLeft: '0px',
-                                                borderRadius: '0px',
-                                            }}
-                                            onChange={(e) => {
-                                                setEmail(e.target.value);
-                                            }}
-                                        />
-                                    </div>
-                                    <div className='col-lg-12'>
-                                        <TextField
-                                            label='Password'
-                                            placeholder=''
-                                            fullWidth
-                                            variant='outlined'
-                                            style={{
-                                                marginLeft: '0px',
-                                                borderRadius: '0px',
-                                            }}
-                                            onChange={(e) => {
-                                                setPassword(e.target.value);
-                                            }}
-                                        />
-                                    </div>
-                                    <div className='col-lg-12 mt-3'>
-                                        <small
-                                            style={{
-                                                color: '#5d8ed5',
-                                                marginLeft: '1%',
-                                                fontWeight: 'bold',
-                                            }}
-                                        >
-                                            Have a referral code
-                                        </small>
-                                    </div>
-
                                     <div className='col-lg-12 text-center'>
                                         <OtpDrawer
-                                            phoneNumber={phNo}
-                                            name={name}
-                                            email={email}
-                                            password={password}
+                                            phoneNumber={phoneNumber}
                                             setState={setState}
                                             state={state}
                                         />
-                                    </div>
-                                    <div>
-                                        <small
-                                            style={{
-                                                fontSize: '9px',
-                                                fontWeight: 'bold',
-                                            }}
-                                            className='text-muted mx-3'
-                                        >
-                                            By creating an account, I accept the{' '}
-                                            <small
-                                                style={{
-                                                    color: '#5d8ed5',
-                                                    fontSize: '9px',
-                                                    fontWeight: 'bold',
-                                                }}
-                                            >
-                                                Terms & Conditions
-                                            </small>
-                                        </small>
                                     </div>
                                 </div>
                             </div>
@@ -201,15 +122,10 @@ export default function RegisterDrawer() {
         <div>
             <button
                 type='button'
-                className=' btn btn-lg align-self-center font-weight-bold'
+                className='nav-link btn btn-lg align-self-center '
                 onClick={toggleDrawer('right', true)}
-                style={{
-                    borderRadius: '0px',
-                    color: 'white',
-                    backgroundColor: 'black',
-                }}
             >
-                {'Sign up'}
+                <i className='fa fa-user'></i> {'Sign in'}
             </button>
             <Drawer
                 anchor={'right'}
@@ -222,7 +138,7 @@ export default function RegisterDrawer() {
     );
 }
 
-function OtpDrawer({ phoneNumber, name, email, password, setState, state }) {
+function OtpDrawer({ phoneNumber, setState, state }) {
     const history = useHistory();
     const [otp, setOtp] = useState('');
     const classes = useStyles();
@@ -242,22 +158,23 @@ function OtpDrawer({ phoneNumber, name, email, password, setState, state }) {
     };
 
     const handleVerify = () => {
-        console.log(phoneNumber, name, email, password, otp);
-        console.log(setState, state);
+        // console.log(phoneNumber, otp);
+        // console.log(setState, state);
         axios
-            .post('http://localhost:5000/api/customer/register/verify', {
-                otp: otp,
-                name: name,
-                email: email,
-                password: password,
+            .post('http://localhost:5000/api/customer/login/verify', {
                 phoneNumber: phoneNumber,
+                otp: otp,
             })
             .then((res) => {
                 console.log(res.data);
-                alert('Registeration Successfull');
+                alert('Login Successfull');
                 setState2({ ...state2, right: false });
                 setState({ ...state, right: false });
-                history.push('/Restaurants');
+                localStorage.setItem('customerData', JSON.stringify(res.data));
+                history.push('/');
+                // history.push('/Restaurants');
+                // history.push('/temp');
+                // history.goBack();
             })
             .catch((err) => {
                 console.log(err.response.data);
@@ -267,17 +184,12 @@ function OtpDrawer({ phoneNumber, name, email, password, setState, state }) {
 
     const getOtp = () => {
         axios
-            .post('http://localhost:5000/api/customer/register', {
+            .post('http://localhost:5000/api/customer/login', {
                 phoneNumber: phoneNumber,
-                name: name,
-                email: email,
-                password: password,
             })
             .then((res) => {
                 console.log(res);
-                alert(
-                    `${name} Registered successfull \n OTP has been sent to ${phoneNumber}`,
-                );
+                alert('OTP have been sent Customer Phone Number');
                 setState2({ ...state2, right: true });
             })
             .catch((err) => {
@@ -407,7 +319,7 @@ function OtpDrawer({ phoneNumber, name, email, password, setState, state }) {
                         marginTop: '9px',
                     }}
                 >
-                    {'CONTINUE'}
+                    {'LOGIN'}
                 </p>
             </button>
             <Drawer
