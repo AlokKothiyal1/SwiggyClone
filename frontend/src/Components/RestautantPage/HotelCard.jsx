@@ -2,10 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Div = styled.div`
-    font-family: sans-serif;
+    font-family: sans-serif !important;
     overflow: hidden;
     border: 0;
-    width: 18rem;
+    width: 17.8rem !important;
     border: 1px solid white;
     border-radius: 0px;
     div > span {
@@ -19,9 +19,10 @@ const Div = styled.div`
 `;
 
 const Tag = styled.p`
+    font-weight: 300 !important;
     color: #686b78;
-    font-size: 13px;
-    margin-top: 3px;
+    font-size: 13px !important;
+    margin-top: 3px !important;
 `;
 
 const Badge = styled.span`
@@ -42,6 +43,14 @@ const QuickView = styled.div`
     &:hover {
         opacity: 1;
     }
+`;
+
+const Discount = styled.p`
+    font-size: 14px !important;
+    line-height: 1.2 !important;
+    font-weight: 400 !important;
+    color: #8a584b;
+    margin-top: 15px;
 `;
 
 const HotelCard = (props) => {
@@ -80,14 +89,15 @@ const HotelCard = (props) => {
                             <span>&bull;</span>
                             <span>{data.average_time} MINS</span>
                             <span>&bull;</span>
-                            <span style={{ marginRight: '0px' }}>
+                            <span
+                                style={{
+                                    marginRight: '0px',
+                                }}
+                            >
                                 ₹{data.average_cost} FOR TWO
                             </span>
                             <div className='dropdown-divider'></div>
-                            <p
-                                className='font-weight-normal'
-                                style={{ color: '#8a584b', marginTop: '15px' }}
-                            >
+                            <Discount className='font-weight-normal'>
                                 <img
                                     src='discountBadge.svg'
                                     alt='discountBadge'
@@ -98,7 +108,7 @@ const HotelCard = (props) => {
                                     }}
                                 />
                                 50% off | Use SWEGGYIT
-                            </p>
+                            </Discount>
                             <QuickView
                                 className='text-center font-weight-bold mb-0'
                                 style={{ color: '#5d8ed5' }}
