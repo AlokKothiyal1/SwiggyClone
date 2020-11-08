@@ -171,9 +171,9 @@ function OtpDrawer({ phoneNumber, setState, state }) {
                 setState2({ ...state2, right: false });
                 setState({ ...state, right: false });
                 localStorage.setItem('customerData', JSON.stringify(res.data));
+                history.push('/temp');
                 history.push('/');
                 // history.push('/Restaurants');
-                // history.push('/temp');
                 // history.goBack();
             })
             .catch((err) => {

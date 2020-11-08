@@ -1,20 +1,18 @@
-import React from "react";
-import Navigator from "./Navigator";
-import Promotions from "./Promotions";
-import SideMenu from "./SideMenu";
-import HotelCard from "./HotelCard";
-import HomeDummy from "./HomeDummy";
-const data = require("../../utils/data.json");
-
-// console.log(data.current);
+import React from 'react';
+import Navigator from './Navigator';
+import HomeDummy from './HomeDummy';
+import AllRestaurants from './AllRestaurants';
+import MainFooter from '../LandingPage/MainFooter';
 
 function Home() {
-  return (
-    <div>
-      <Navigator />
-      <HomeDummy />
-    </div>
-  );
+    return (
+        <div>
+            <Navigator />
+            <HomeDummy />
+            <AllRestaurants />
+            <MainFooter />
+        </div>
+    );
 }
 
 export default Home;
