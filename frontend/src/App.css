@@ -36,3 +36,7 @@
     transform: rotate(360deg);
   }
 }
+
+.scrollspy-example::-webkit-scrollbar: {
+  width: 0px;
+}
