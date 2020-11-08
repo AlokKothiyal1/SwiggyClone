@@ -1,6 +1,6 @@
 const express = require('express');
 const {loginValidation,registerationValidation} = require('../validation')
-const Customer = require('../models/customers')
+const Customer = require('../models/customer')
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const dotenv = require('dotenv')
