@@ -29,7 +29,6 @@ const Badge = styled.span`
     padding: 5px;
     border-radius: 0px;
     background-color: ${(props) => {
-        console.log('Badge=>', props);
         if (props.rating < 4) {
             return '#db7c38';
         } else {
@@ -47,7 +46,7 @@ const QuickView = styled.div`
 
 const HotelCard = (props) => {
     const { data } = props;
-    console.log(data);
+    // console.log(data);
     return (
         <>
             <div className='col'>

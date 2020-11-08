@@ -10,11 +10,11 @@ import {
     Card,
     CardImg,
 } from './LandingStyledComponents';
-import axios from 'axios';
+import LoginDrawer from './Customer/LoginDrawer';
+import RegisterDrawer from './Customer/RegisterDrawer';
 import { TextField } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
-import LoginDrawer from './LoginDrawer';
-import RegisterDrawer from './RegisterDrawer';
+import axios from 'axios';
 
 export class LandingUpper extends Component {
     constructor(props) {
