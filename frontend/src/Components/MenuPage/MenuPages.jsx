@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Navigator from "../RestautantPage/Navigator";
 import styled from "styled-components";
+import RestaurantCards from "./RestaurantCards";
+import Options from "./Options";
 
 const Wrapper = styled.div`
   font-family: sans-serif;
@@ -163,6 +165,18 @@ function Menupages() {
           </div>
         </div>
       </Wrapper>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-4">
+            <Options />
+          </div>
+          <div className="col-4 pt-3 text-left">
+            {" "}
+            <RestaurantCards />
+          </div>
+          <div className="col-4"></div>
+        </div>
+      </div>
     </div>
   );
 }
