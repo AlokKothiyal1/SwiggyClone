@@ -70,7 +70,7 @@ const HotelCard = (props) => {
                         }}
                     />
                     <div className='card-body text-left'>
-                        <h5 className='card-title'>
+                        <h5 className='card-title' style={{ color: '#171a29' }}>
                             {data.name}
                             <br />
                             <Tag>{data.cuisines.join(', ')}</Tag>
