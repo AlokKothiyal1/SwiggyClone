@@ -1,11 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+// import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Div = styled.div`
     font-family: sans-serif !important;
     overflow: hidden;
     border: 0;
-    width: 17.8rem !important;
+    width: 18rem !important;
     border: 1px solid white;
     border-radius: 0px;
     div > span {
@@ -54,12 +56,20 @@ const Discount = styled.p`
 `;
 
 const HotelCard = (props) => {
+    const history = useHistory();
+
     const { data } = props;
+
+    const goTo = () => {
+        localStorage.setItem('hotel', JSON.stringify(data));
+        history.push('/MenuPage');
+    };
     // console.log(data);
     return (
         <>
+            {/* <Link to={{ pathname: '/Menupage', hotelInfo: { data } }}> */}
             <div className='col'>
-                <Div className='card mb-2'>
+                <Div className='card mb-2 btn' onClick={goTo}>
                     <img
                         className='card-img-top align-self-center mt-3 '
                         src={data.img_url}
@@ -120,6 +130,7 @@ const HotelCard = (props) => {
                     </div>
                 </Div>
             </div>
+            {/* </Link> */}
         </>
     );
 };
