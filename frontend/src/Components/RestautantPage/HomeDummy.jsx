@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Promotions from './Promotions';
 import styled from 'styled-components';
 import HotelCard from './HotelCard';
+import MoreCard from './MoreCard';
 var axios = require('axios');
 
 const Wrapper = styled.div`
@@ -228,13 +229,11 @@ function HomeDummy() {
                         >
                             <Section className='row'>
                                 <Title>Top Pics</Title>
-                                <div
-                                    className='row row-cols-3 justify-content-center'
-                                    id='topPicks'
-                                >
+                                <div className='row row-cols-3' id='topPicks'>
                                     {topPicks.map((item) => (
                                         <HotelCard data={item} key={item._id} />
                                     ))}
+                                    <MoreCard more={totalTopPicks - 5} />
                                 </div>
                             </Section>
                             <Section className='row'>
@@ -246,6 +245,7 @@ function HomeDummy() {
                                     {exclusive.map((item) => (
                                         <HotelCard data={item} key={item._id} />
                                     ))}
+                                    <MoreCard more={totalExclusive - 5} />
                                 </div>
                             </Section>
                             <Section className='row'>
@@ -257,6 +257,7 @@ function HomeDummy() {
                                     {premium.map((item) => (
                                         <HotelCard data={item} key={item._id} />
                                     ))}
+                                    <MoreCard more={totalPremium - 5} />
                                 </div>
                             </Section>
                             <Section className='row'>
@@ -268,6 +269,7 @@ function HomeDummy() {
                                     {veg.map((item) => (
                                         <HotelCard data={item} key={item._id} />
                                     ))}
+                                    <MoreCard more={totalVeg - 5} />
                                 </div>
                             </Section>
                         </div>
