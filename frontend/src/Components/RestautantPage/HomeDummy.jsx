@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Promotions from './Promotions';
 import styled from 'styled-components';
 import HotelCard from './HotelCard';
-const data = require('../../utils/data.json');
+var axios = require('axios');
 
 const Wrapper = styled.div`
     color: #535665;
@@ -70,7 +70,69 @@ const Wrapper = styled.div`
     }
 `;
 
+const Section = styled.div`
+    // border: 1px solid red;
+    margin-top: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed #bebfc5;
+`;
+
+const Title = styled.p`
+    // border: 1px solid black;
+    font-size: 28px !important;
+    font-weight: 600;
+    color: #282c3f;
+    line-height: 1.2;
+    margin-left: 12px;
+`;
+
 function HomeDummy() {
+    const [topPicks, setTopPicks] = useState([]);
+    const [exclusive, setExclusive] = useState([]);
+    const [premium, setPremium] = useState([]);
+    const [veg, setVeg] = useState([]);
+
+    const [totalTopPicks, setTotalTopPicks] = useState([]);
+    const [totalExclusive, setTotalExclusive] = useState([]);
+    const [totalPremium, setTotalPremium] = useState([]);
+    const [totalVeg, setTotalVeg] = useState([]);
+
+    const getData = (filter) => {
+        var config = {
+            method: 'get',
+            url: `http://localhost:5000/api/restaurant?lat=12.9259&lng=77.6229&filter=${filter}&page=1&limit=5`,
+            headers: {},
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(response.data);
+                if (filter === 'top_pick') {
+                    setTopPicks(response.data.current);
+                    setTotalTopPicks(response.data.total);
+                } else if (filter === 'exclusive') {
+                    setExclusive(response.data.current);
+                    setTotalExclusive(response.data.total);
+                } else if (filter === 'newly_added') {
+                    setPremium(response.data.current);
+                    setTotalPremium(response.data.total);
+                } else if (filter === 'veg') {
+                    setVeg(response.data.current);
+                    setTotalVeg(response.data.total);
+                }
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            });
+    };
+
+    useEffect(() => {
+        getData('top_pick');
+        getData('exclusive');
+        getData('newly_added');
+        getData('veg');
+    }, []);
+
     return (
         <>
             <Promotions />
@@ -89,7 +151,9 @@ function HomeDummy() {
                                         </div>
                                         <div className='col-9 text-left content'>
                                             <p>Top Picks</p>
-                                            <small>12 OPTIONS</small>
+                                            <small>
+                                                {totalTopPicks} OPTIONS
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
@@ -103,7 +167,9 @@ function HomeDummy() {
                                         </div>
                                         <div className='col-9 text-left content'>
                                             <p>Exclusive</p>
-                                            <small>12 OPTIONS</small>
+                                            <small>
+                                                {totalExclusive} OPTIONS
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
@@ -117,7 +183,9 @@ function HomeDummy() {
                                         </div>
                                         <div className='col-9 text-left content'>
                                             <p>Premium</p>
-                                            <small>12 OPTIONS</small>
+                                            <small>
+                                                {totalPremium} OPTIONS
+                                            </small>
                                         </div>
                                     </div>
                                 </div>
@@ -131,7 +199,7 @@ function HomeDummy() {
                                         </div>
                                         <div className='col-9 text-left content'>
                                             <p>Veg Only</p>
-                                            <small>12 OPTIONS</small>
+                                            <small>{totalVeg} OPTIONS</small>
                                         </div>
                                     </div>
                                 </div>
@@ -144,8 +212,8 @@ function HomeDummy() {
                                             />
                                         </div>
                                         <div className='col-9 text-left  mb-5 content'>
-                                            <p>All Items</p>
-                                            <small>12 OPTIONS</small>
+                                            <p>SEE ALL</p>
+                                            <small>RESTAURANTS</small>
                                         </div>
                                     </div>
                                 </div>
@@ -158,46 +226,50 @@ function HomeDummy() {
                             data-target='#list'
                             data-offset='0'
                         >
-                            <div
-                                className='row row-cols-3 justify-content-center'
-                                id='topPicks'
-                            >
-                                {data.current.map((item) => (
-                                    <HotelCard data={item} key={item._id} />
-                                ))}
-                            </div>
-                            <div
-                                className='row row-cols-3 justify-content-center'
-                                id='Exclusive'
-                            >
-                                {data.current.map((item) => (
-                                    <HotelCard data={item} key={item._id} />
-                                ))}
-                            </div>
-                            <div
-                                className='row row-cols-3 justify-content-center'
-                                id='Premium'
-                            >
-                                {data.current.map((item) => (
-                                    <HotelCard data={item} key={item._id} />
-                                ))}
-                            </div>
-                            <div
-                                className='row row-cols-3 justify-content-center'
-                                id='vegOnly'
-                            >
-                                {data.current.map((item) => (
-                                    <HotelCard data={item} key={item._id} />
-                                ))}
-                            </div>
-                            <div
-                                className='row row-cols-3 justify-content-center'
-                                id='allItems'
-                            >
-                                {data.current.map((item) => (
-                                    <HotelCard data={item} key={item._id} />
-                                ))}
-                            </div>
+                            <Section className='row'>
+                                <Title>Top Pics</Title>
+                                <div
+                                    className='row row-cols-3 justify-content-center'
+                                    id='topPicks'
+                                >
+                                    {topPicks.map((item) => (
+                                        <HotelCard data={item} key={item._id} />
+                                    ))}
+                                </div>
+                            </Section>
+                            <Section className='row'>
+                                <Title>Exclusive</Title>
+                                <div
+                                    className='row row-cols-3 justify-content-center'
+                                    id='Exclusive'
+                                >
+                                    {exclusive.map((item) => (
+                                        <HotelCard data={item} key={item._id} />
+                                    ))}
+                                </div>
+                            </Section>
+                            <Section className='row'>
+                                <Title>Premium</Title>
+                                <div
+                                    className='row row-cols-3 justify-content-center'
+                                    id='Premium'
+                                >
+                                    {premium.map((item) => (
+                                        <HotelCard data={item} key={item._id} />
+                                    ))}
+                                </div>
+                            </Section>
+                            <Section className='row'>
+                                <Title>Veg Only</Title>
+                                <div
+                                    className='row row-cols-3 justify-content-center'
+                                    id='vegOnly'
+                                >
+                                    {veg.map((item) => (
+                                        <HotelCard data={item} key={item._id} />
+                                    ))}
+                                </div>
+                            </Section>
                         </div>
                     </div>
                 </Wrapper>

@@ -49,6 +49,7 @@ const Equal = styled.img`
 const SortRestaurants = () => {
     const history = useHistory();
     const [data, setData] = useState([]);
+    const [totalRestaurants, setTotalRestaurants] = useState();
 
     useEffect(() => {
         var config = {
@@ -61,6 +62,7 @@ const SortRestaurants = () => {
             .then(function (response) {
                 // console.log(response.data.current);
                 setData(response.data.current);
+                setTotalRestaurants(response.data.total);
             })
             .catch(function (error) {
                 console.log(error.response.data);
@@ -126,7 +128,7 @@ const SortRestaurants = () => {
                                         alt='restaurant'
                                     />
                                 </button>
-                                {data.length} restaurants
+                                {totalRestaurants} restaurants
                             </h3>
                         </div>
 
