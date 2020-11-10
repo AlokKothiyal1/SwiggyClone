@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+import { useDispatch, useSelector } from 'react-redux';
+import { handleCart, handledecrement, handleIncrement } from './Redux/action';
 
 const Wrapper = styled.div`
     overflow: hidden;
@@ -48,12 +50,46 @@ const Wrapper = styled.div`
     .row {
         border-bottom: 2px solid #e9eaec;
     }
+
+    .addCart {
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-top: -25px;
+        background: white;
+        margin-left: 30px;
+    }
+
+    .buttoncart {
+        margin-left: 0;
+        margin-right: 0;
+        border: none;
+        background: white;
+        padding: 5%;
+        color: green;
+    }
 `;
 
 function RestaurantCards(props) {
+    const dispatch = useDispatch();
+    const state = useSelector((state) => state);
+    const [qty, setqty] = useState(0);
     const { data } = props;
-    console.log(data);
-    // const flag = true;
+
+    const handleAdd = (data) => {
+        setqty(qty + 1);
+        dispatch(handleCart(data));
+    };
+
+    const handleInc = () => {
+        setqty(qty + 1);
+        dispatch(handleIncrement(data._id));
+    };
+
+    const handleDec = () => {
+        setqty(qty - 1);
+        dispatch(handledecrement(data._id));
+    };
+    console.log('state is->', state);
     return (
         <Wrapper>
             <div className='container-fluid'>
@@ -93,8 +129,40 @@ function RestaurantCards(props) {
                             <small className='mb-5'>{data.description}</small>
                         </div>
                     </div>
-                    <div className='col-lg-5 mt-4 mb-5'>
-                        <img src={data.img_url} alt='item' className='p-2' />
+                    <div className='col-lg-5 mt-4 mb-5 position-relative'>
+                        <img
+                            src={data.img_url}
+                            alt='item photo'
+                            className='p-2'
+                        />
+                        <div>
+                            {qty === 0 ? (
+                                <div
+                                    className='addCart col-5 text-center py-2 text-success'
+                                    onClick={() => handleAdd(data)}
+                                >
+                                    ADD
+                                </div>
+                            ) : (
+                                <div className='addCart'>
+                                    <button
+                                        className='buttoncart'
+                                        onClick={() => handleDec()}
+                                    >
+                                        -
+                                    </button>
+                                    <button className='buttoncart'>
+                                        {qty}
+                                    </button>
+                                    <button
+                                        className='buttoncart'
+                                        onClick={() => handleInc()}
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

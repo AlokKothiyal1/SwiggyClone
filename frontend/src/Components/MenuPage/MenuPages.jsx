@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Navigator from '../RestautantPage/Navigator';
 import styled from 'styled-components';
 import RestaurantCards from './RestaurantCards';
 import Options from './Options';
+import Cart from './Cart';
 
 const Wrapper = styled.div`
     font-family: sans-serif;
@@ -199,8 +200,12 @@ function Menupages() {
                         {data.categories.map((elem) => (
                             <React.Fragment>
                                 <h2
-                                    className='text-left ml-3 mt-2'
-                                    style={{ marginLeft: '1.4rem !important' }}
+                                    className='text-left ml-3 mt-4'
+                                    style={{
+                                        marginLeft: '1.4rem !important',
+                                        color: '#282c3f',
+                                        fontWeight: 'bolder',
+                                    }}
                                 >
                                     {elem}
                                 </h2>
@@ -221,7 +226,9 @@ function Menupages() {
                             </React.Fragment>
                         ))}
                     </div>
-                    <div className='col-2 '></div>
+                    <div className='col-3'>
+                        <Cart />
+                    </div>
                 </div>
             </div>
         </div>
