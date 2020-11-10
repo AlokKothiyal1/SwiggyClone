@@ -1,9 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
+import Carditems from "./Carditems";
 
 const Wrapper = styled.div`
   font-family: sans-serif;
+
+  .sticky {
+    position: sticky;
+    top: 150px;
+  }
 
   h4 {
     font-size: 25px;
@@ -24,9 +30,12 @@ const Wrapper = styled.div`
 
   .menubox {
     width: 300px;
-    height: 200px;
-    margin-top: 20px;
-    border-bottom: 2px solid #cdcdcd;
+    height: 120px;
+    margin-top: 13px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    margin-bottom: 10px;
   }
 
   .veg {
@@ -66,45 +75,15 @@ function Cart() {
 
   return (
     <Wrapper>
-      <div className=" text-left">
+      <div className=" text-left sticky">
         <h4>Cart</h4>
         <p className="text-muted">
           {state.cart.reduce((a, b) => a + b.qty, 0)} ITEMS
         </p>
-        <div className="menubox">
-          <div className="row">
-            <div className="col-8">
-              <div className="row">
-                <div className="col-1">
-                  <div
-                    className="mt-3"
-                    style={{
-                      border: "1px solid green",
-                      width: "15px",
-                      height: "15px",
-                      marginLeft: "11%",
-                    }}
-                  >
-                    <div className="veg"></div>
-                  </div>
-                </div>
-                <div className="col-9 mt-2">
-                  <small className="mt-5 text-dark">Chicken Biryani</small>
-                </div>
-              </div>
-            </div>
-            <div className="col-4">
-              {/* <div className="addCart">
-                <button className="buttoncart">-</button>
-                <button className="buttoncart">1</button>
-                <button className="buttoncart">+</button>
-              </div> */}
-              <div className="mt-2">
-                {" "}
-                <small> ₹ {state.cart[0].qty * state.cart[0].price}</small>
-              </div>
-            </div>
-          </div>
+        <div className="menubox mr-5">
+          {state.cart.map((item) => (
+            <Carditems data={item} />
+          ))}
         </div>
         <div>
           <div className="row">
@@ -115,16 +94,17 @@ function Cart() {
               </small>
             </div>
             <div className="col-4 mt-3 text-right mr-2">
-              <b>₹1200</b>
+              <b> ₹{state.cart.reduce((a, b) => a + b.qty * b.price, 0)}</b>
             </div>
           </div>
         </div>
+
         <div className="pt-3 pr-5">
           <button
             className="btn btn-block btn-lg btn-success"
             style={{ borderRadius: "0px" }}
           >
-            CHECKOUT
+            <h6 className="mt-2">CHECKOUT</h6>
           </button>
         </div>
       </div>
