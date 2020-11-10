@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Navigator from '../RestautantPage/Navigator';
 import styled from 'styled-components';
 import RestaurantCards from './RestaurantCards';

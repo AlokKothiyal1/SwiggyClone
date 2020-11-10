@@ -53,7 +53,7 @@ const Wrapper = styled.div`
 function RestaurantCards(props) {
     const { data } = props;
     console.log(data);
-    const flag = true;
+    // const flag = true;
     return (
         <Wrapper>
             <div className='container-fluid'>
@@ -94,11 +94,7 @@ function RestaurantCards(props) {
                         </div>
                     </div>
                     <div className='col-lg-5 mt-4 mb-5'>
-                        <img
-                            src={data.img_url}
-                            alt='item photo'
-                            className='p-2'
-                        />
+                        <img src={data.img_url} alt='item' className='p-2' />
                     </div>
                 </div>
             </div>
