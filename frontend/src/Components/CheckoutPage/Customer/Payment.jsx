@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    font-family: sans-serif;
+    font-family: system-ui !important;
     line-height: 1.2;
     background: #fff;
     margin-bottom: 20px;
@@ -37,6 +37,23 @@ const Wallet = styled.img`
     box-shadow: 0 3px 5px 0 rgba(40, 44, 63, 0.4);
 `;
 
+const WarningText = styled.p`
+    font-size: 13px;
+    color: #93959f;
+    margin-bottom: 8px;
+    font-weight: 300;
+    line-height: 16px;
+    overflow: hidden;
+    border: 1px dashed #60b246;
+    padding-right: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+`;
+
+const handlePayment = () => {
+    alert('Payment is Started');
+};
+
 const Payment = () => {
     return (
         <>
@@ -51,7 +68,23 @@ const Payment = () => {
                                 <div className='col'>
                                     <Title>Payment</Title>
                                 </div>
-                                <div className='col'>Block for adding</div>
+                                <WarningText className='col-10 ml-3 mb-3 '>
+                                    Please use RazorPay as Payment method as
+                                    other services are under Maintenance.
+                                </WarningText>
+                                <button
+                                    className='btn btn-success btn-sm col-3 ml-3 mt-4'
+                                    onClick={handlePayment}
+                                >
+                                    <img
+                                        src='https://razorpay.com/assets/razorpay-logo-white.svg'
+                                        alt='RazorPay'
+                                        style={{
+                                            width: 'inherit',
+                                            height: 'inherit',
+                                        }}
+                                    />
+                                </button>
                             </div>
                         </div>
                     </div>

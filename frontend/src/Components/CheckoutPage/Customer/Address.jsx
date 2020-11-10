@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
-    font-family: sans-serif;
+    font-family: system-ui !important;
     line-height: 1.2;
     background: #fff;
     margin-bottom: 20px;

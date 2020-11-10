@@ -130,11 +130,7 @@ function RestaurantCards(props) {
                         </div>
                     </div>
                     <div className='col-lg-5 mt-4 mb-5 position-relative'>
-                        <img
-                            src={data.img_url}
-                            alt='item photo'
-                            className='p-2'
-                        />
+                        <img src={data.img_url} alt='item' className='p-2' />
                         <div>
                             {qty === 0 ? (
                                 <div
