@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -33,10 +33,20 @@ const useStyles = makeStyles({
 });
 
 export default function TemporaryDrawer() {
+    const [area, setArea] = useState('');
     const classes = useStyles();
     const [state, setState] = React.useState({
         left: false,
     });
+
+    useEffect(() => {
+        if (localStorage.getItem('Coordinates') == null) {
+            setArea('Bangaluru');
+        } else {
+            setArea(JSON.parse(localStorage.getItem('Coordinates')).area);
+        }
+    }, []);
+    // console.log(area);
 
     const toggleDrawer = (anchor, open) => (event) => {
         if (
@@ -66,10 +76,12 @@ export default function TemporaryDrawer() {
         <div>
             <City
                 type='button'
-                className='btn btn-md'
+                className='btn btn-md text-capitalize'
                 onClick={toggleDrawer('left', true)}
             >
-                {'Bangaluru'}
+                {/* {'Bangaluru'} */}
+                {/* {JSON.parse(localStorage.getItem('Coordinates')).area} */}
+                {area}
             </City>
             <Drawer
                 anchor={'left'}
