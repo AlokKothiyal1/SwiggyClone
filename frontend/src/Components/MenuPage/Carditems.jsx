@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+
 import { useDispatch, useSelector } from "react-redux";
 
 const Wrapper = styled.div`
@@ -20,13 +21,6 @@ const Wrapper = styled.div`
     font-size: 13px;
     font-weight: bold;
     margin-left: 2px;
-  }
-
-  .menubox {
-    width: 300px;
-    height: 200px;
-    margin-top: 20px;
-    border-bottom: 2px solid #cdcdcd;
   }
 
   .veg {
@@ -62,6 +56,7 @@ const Wrapper = styled.div`
 `;
 
 function Carditems(props) {
+  const state = useSelector((state) => state);
   const { data } = props;
 
   return (
