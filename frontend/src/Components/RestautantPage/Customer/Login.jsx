@@ -167,13 +167,13 @@ function OtpDrawer({ phoneNumber, setState, state }) {
             })
             .then((res) => {
                 console.log(res.data);
-                alert('Login Successfull');
+                // alert('Login Successfull');
                 setState2({ ...state2, right: false });
                 setState({ ...state, right: false });
                 localStorage.setItem('customerData', JSON.stringify(res.data));
                 history.push('/temp');
-                history.push('/');
-                // history.push('/Restaurants');
+                // history.push('/');
+                history.push('/Restaurants');
                 // history.goBack();
             })
             .catch((err) => {
@@ -189,7 +189,7 @@ function OtpDrawer({ phoneNumber, setState, state }) {
             })
             .then((res) => {
                 console.log(res);
-                alert('OTP have been sent Customer Phone Number');
+                // alert('OTP have been sent Customer Phone Number');
                 setState2({ ...state2, right: true });
             })
             .catch((err) => {

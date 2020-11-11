@@ -15,7 +15,7 @@ import RegisterDrawer from './Customer/RegisterDrawer';
 import { TextField } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import axios from 'axios';
-import { withRouter, Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 export class LandingUpper extends Component {
     constructor(props) {
