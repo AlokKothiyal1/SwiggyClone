@@ -14,7 +14,10 @@ export const Routes = () => {
                 <Route path='/Restaurants' render={() => <Home />} />
                 {/* <Route path='/' exact render={() => <MenuPages />} /> */}
                 <Route path='/MenuPage' render={() => <MenuPages />} />
-                <Route path='/CheckoutPage' render={() => <CheckoutPage />} />
+                <Route
+                    path='/CheckoutPage'
+                    render={(props) => <CheckoutPage {...props} />}
+                />
                 {/* <Route path='/' render={() => <CheckoutPage />} /> */}
             </Switch>
         </>

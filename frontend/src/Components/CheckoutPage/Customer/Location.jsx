@@ -5,6 +5,7 @@ import Drawer from '@material-ui/core/Drawer';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import Map from './Map';
+import { useHistory } from 'react-router-dom';
 
 const Wrapper = styled.div`
     font-family: system-ui !important;
@@ -146,6 +147,7 @@ const useStyles = makeStyles({
 });
 
 export default function TemporaryDrawer() {
+    const history = useHistory();
     const [flatNo, setFlatNo] = useState('');
     const [landmark, setLandmark] = useState('');
     const [type, setType] = useState('');
@@ -170,6 +172,7 @@ export default function TemporaryDrawer() {
         localStorage.setItem('CustomerCurrentLoc', JSON.stringify(userLoc));
 
         setState({ ...state, left: false });
+        history.push('/CheckoutPage');
     };
 
     const toggleDrawer = (anchor, open) => (event) => {

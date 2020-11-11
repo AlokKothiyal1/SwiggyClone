@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CheckoutNavigator from './CheckoutNavigator';
 import styled from 'styled-components';
 import Login from './Customer/Login';
 import Address from './Customer/Address';
 import Payment from './Customer/Payment';
 import MainFooter from '../LandingPage/MainFooter';
+// import { useLocation } from 'react-router-dom';
 
 const Wrapper = styled.div`
     overflow: hidden;
@@ -21,7 +22,14 @@ const Wrapper = styled.div`
     }
 `;
 
-const CheckoutPage = () => {
+const CheckoutPage = (props) => {
+    console.log(props.location.isAddrSelected);
+    const [isAddrSelected, setIsAddrSelected] = useState(false);
+
+    useEffect(() => {
+        setIsAddrSelected(props.location.isAddrSelected || false);
+    }, [props.location.isAddrSelected]);
+
     return (
         <>
             <CheckoutNavigator />
@@ -34,11 +42,15 @@ const CheckoutPage = () => {
                                     <Login />
                                 </div>
                                 <div className='col'>
-                                    <Address />
+                                    <Address flag={isAddrSelected} />
                                 </div>
-                                <div className='col'>
-                                    <Payment />
-                                </div>
+                                {isAddrSelected ? (
+                                    <div className='col'>
+                                        <Payment />
+                                    </div>
+                                ) : (
+                                    <div></div>
+                                )}
                             </div>
                         </div>
                         <div className='col-4'>orders</div>
@@ -49,5 +61,4 @@ const CheckoutPage = () => {
         </>
     );
 };
-
 export default CheckoutPage;
