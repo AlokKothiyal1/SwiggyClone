@@ -39,6 +39,14 @@ const itemSchema = new Schema({
     img_url:{
         type:String,
         required:true
+    },
+    best_seller:{
+        type:Boolean,
+        default:false
+    },
+    description:{
+        type:String,
+        default:""
     }
 })
 
@@ -83,6 +91,10 @@ const restaurantSchema = new Schema({
     },
     newly_added:{
         type:Boolean,
+        required:true
+    },
+    categories:{
+        type:Array,
         required:true
     },
     items:{

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Axios from 'axios'
 
 const Wrapper = styled.div`
     font-family: system-ui !important;
@@ -50,11 +51,46 @@ const WarningText = styled.p`
     padding-bottom: 10px;
 `;
 
-const handlePayment = () => {
-    alert('Payment is Started');
+
+function Payment(){
+
+    async function handlePayment(e){
+    e.preventDefault();
+
+        const API_URL = 'http://localhost:5000/api/razor/'
+        const orderUrl = `${API_URL}order`;
+        const response = await Axios.get(orderUrl);
+        const { data } = response;
+        
+        const options = {
+          key:'rzp_test_RasK5It8i6ASFZ',
+          name: "RazorPay",
+          description: "Integration of Razorpay",
+          order_id: data.id,
+          handler: async (response) => {
+            try {
+              const paymentId = response.razorpay_payment_id;
+              const url = `${API_URL}capture/${paymentId}`;
+              const captureResponse = await Axios.post(url, {})
+              const successObj = JSON.parse(captureResponse.data)
+              const captured = successObj.captured;
+              if (captured) {
+                console.log('success')
+              }
+            } catch (err) {
+              console.log(err);
+            }
+            
+          },
+          theme: {
+            color: "#e46d47",
+          },
+        };
+        const rzp1 = new window.Razorpay(options);
+        rzp1.open();
 };
 
-const Payment = () => {
+
     return (
         <>
             <>
