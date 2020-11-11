@@ -15,6 +15,7 @@ import RegisterDrawer from './Customer/RegisterDrawer';
 import { TextField } from '@material-ui/core';
 import { Autocomplete } from '@material-ui/lab';
 import axios from 'axios';
+import { withRouter, Link } from 'react-router-dom';
 
 export class LandingUpper extends Component {
     constructor(props) {
@@ -26,6 +27,7 @@ export class LandingUpper extends Component {
     }
 
     handleInputChange = (e) => {
+        // const history = useHistory();
         axios({
             method: 'get',
             url: `https://api.mapbox.com/geocoding/v5/mapbox.places/${e.target.value}.json`,
@@ -38,11 +40,41 @@ export class LandingUpper extends Component {
                 this.setState({
                     data: res.data.features,
                 });
-                console.log(res);
+                // console.log(res);
+                this.getLocation(res.data.features);
             })
             .catch((err) => {
                 console.log(err);
             });
+    };
+
+    getLocation = (data) => {
+        data.map((item, i) => {
+            if (i === 0) {
+                var long = item.center[0];
+                var lat = item.center[1];
+                var temp = item.place_name.split(', ');
+                var area = temp[0];
+                temp.shift();
+                var place_name = temp.join(', ');
+
+                const Coordinates = {
+                    lat,
+                    long,
+                    area,
+                    place_name,
+                };
+                // console.log(Coordinates);
+                localStorage.setItem(
+                    'Coordinates',
+                    JSON.stringify(Coordinates),
+                );
+            }
+        });
+    };
+
+    goTo = () => {
+        this.props.history.push('/Restaurants');
     };
 
     render() {
@@ -99,7 +131,10 @@ export class LandingUpper extends Component {
 
                             {/* SEARCH BAR */}
                             <div className='container'>
-                                <Search className='row '>
+                                <Search
+                                    className='row '
+                                    style={{ border: '1px solid #fc8019' }}
+                                >
                                     <div className='col-10 text-left align-self-center'>
                                         <div className='row'>
                                             <Autocomplete
@@ -143,7 +178,8 @@ export class LandingUpper extends Component {
                                     </div>
                                     <button
                                         type='button'
-                                        className='col-2 btn btn-lg '
+                                        className='col-2 btn btn-lg'
+                                        onClick={this.goTo}
                                         style={{
                                             height: '100%',
                                             color: 'white',
@@ -299,4 +335,4 @@ export class LandingUpper extends Component {
     }
 }
 
-export default LandingUpper;
+export default withRouter(LandingUpper);

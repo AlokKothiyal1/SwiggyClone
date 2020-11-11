@@ -68,9 +68,9 @@ function CustomerName({ name }) {
         return (
             <button
                 type='button'
-                className='nav-link btn btn-lg align-self-center '
+                className='nav-link btn btn-lg align-self-center text-capitalize '
             >
-                <i className='fa fa-user'></i> {name}
+                <i className='fa fa-user mr-1'></i> {name}
             </button>
         );
     }
