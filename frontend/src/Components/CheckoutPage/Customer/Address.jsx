@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Location from './Location';
 
 const Wrapper = styled.div`
     font-family: system-ui !important;
@@ -34,7 +35,7 @@ const Title = styled.p`
     color: #282c3f;
 `;
 
-const Location = styled.img`
+const LocationIcon = styled.img`
     height: 50px;
     width: 50px;
     vertical-align: inherit;
@@ -83,54 +84,64 @@ const Address = () => {
                 <Wrapper className='container'>
                     <div className='row'>
                         <Logo className='col-1'>
-                            <Location
+                            <LocationIcon
                                 src='Icons/placeholder.svg'
                                 alt='placeholder'
                             />
                         </Logo>
                         <div className='col-11'>
-                            <div className='row row-cols-1'>
+                            <div className='row '>
                                 <div className='col'>
                                     <Title>Delivery Address</Title>
-                                </div>
+                                </div>{' '}
+                                <div class='w-100'></div>
                                 <div className='col-6'>
                                     <div className='container'>
-                                        <AddressContainer className='row py-3'>
+                                        <AddressContainer
+                                            type='button'
+                                            className='row py-3'
+                                        >
                                             <div className='col-1'>
                                                 <AddLocation
                                                     src='Icons/location.svg'
                                                     alt='placeholder'
                                                 />
                                             </div>
-                                            <div className='col col-offset-6'>
-                                                <div className=' row row-cols-1'>
+                                            <div className='col'>
+                                                <div className='row row-cols-1'>
                                                     <AddAddressTitle className='col text-left'>
-                                                        Add Your Address
+                                                        Home
                                                     </AddAddressTitle>
                                                     <AddressText>
-                                                        <div className='col text-left'>
+                                                        <div className='col text-left text-capitalize'>
                                                             Kormangala,
                                                             Bengaluru,
                                                             Karnataka, India
                                                         </div>
-                                                        <div className='col mb-3 text-left'>
+                                                        <div className='col mb-3 text-left text-capitalize'>
                                                             Home
                                                         </div>
                                                     </AddressText>
+                                                    <b className='col mb-1 text-left'>
+                                                        30 mins
+                                                    </b>
                                                     <button
                                                         type='button'
-                                                        className='col-5 btn btn-outline-success text-uppercase mt-2'
+                                                        className='col-8 btn btn-outline-success text-uppercase mt-2'
                                                         style={{
                                                             borderRadius: '0px',
                                                             marginLeft: '15px',
                                                         }}
                                                     >
-                                                        Add
+                                                        Deliver Here
                                                     </button>
                                                 </div>
                                             </div>
                                         </AddressContainer>
                                     </div>
+                                </div>
+                                <div className='col-5 align-self-center'>
+                                    <Location />
                                 </div>
                             </div>
                         </div>

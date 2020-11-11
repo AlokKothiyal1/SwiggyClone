@@ -73,9 +73,9 @@ function CustomerName({ name }) {
         return (
             <button
                 type='button'
-                className='nav-link btn btn-lg align-self-center '
+                className='nav-link btn btn-lg align-self-center text-capitalize'
             >
-                <i className='fa fa-user'></i> {name}
+                <i className='fa fa-user mr-1'></i> {name}
             </button>
         );
     }
@@ -83,12 +83,21 @@ function CustomerName({ name }) {
 
 function Navigator() {
     const [name, setName] = useState('');
+    const [placeName, setPlaceName] = useState('');
 
     useEffect(() => {
         if (localStorage.getItem('customerData') == null) {
             setName('');
         } else {
             setName(JSON.parse(localStorage.getItem('customerData')).name);
+        }
+
+        if (localStorage.getItem('Coordinates') == null) {
+            setPlaceName('Karnatak, India');
+        } else {
+            setPlaceName(
+                JSON.parse(localStorage.getItem('Coordinates')).place_name,
+            );
         }
     }, []);
     console.log(name);
@@ -117,8 +126,12 @@ function Navigator() {
                             <li className='list-inline-item '>
                                 <Location />
                             </li>
-                            <Address className='list-inline-item'>
-                                Karnatak, India
+                            <Address
+                                className='list-inline-item text-truncate text-capitalize'
+                                style={{ maxWidth: '230px' }}
+                            >
+                                {/* Karnatak, India */}
+                                {placeName}
                             </Address>
                             <li className='list-inline-item'>
                                 <button type='button' className='btn btn-sm'>
@@ -157,7 +170,7 @@ function Navigator() {
                                     <i className='fa fa-support'></i> Help
                                 </Link>
                             </div>
-                            <div className='nav-item'>
+                            <div className='nav-item text-capitalize'>
                                 {/* <Login /> */}
                                 <CustomerName name={name} />
                             </div>
