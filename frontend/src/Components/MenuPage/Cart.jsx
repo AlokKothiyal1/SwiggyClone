@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Carditems from "./Carditems";
 import { useHistory } from "react-router-dom";
 import EmptyCart from "./EmptyCart";
+import { useEffect } from "react";
+import { handlecartupdate } from "./Redux/action";
 
 const Wrapper = styled.div`
   font-family: sans-serif;
@@ -74,12 +76,14 @@ const Wrapper = styled.div`
 function Cart() {
   const history = useHistory();
   const state = useSelector((state) => state);
-
+  const dispatch = useDispatch();
   const handleCheckout = () => {
     localStorage.setItem("cart", JSON.stringify(state.cart));
     history.push("/CheckoutPage");
   };
-
+  useEffect(() => {
+    dispatch(handlecartupdate());
+  }, []);
   return (
     <Wrapper>
       <div className="text-left sticky">
