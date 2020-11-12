@@ -53,15 +53,18 @@ const WarningText = styled.p`
 `;
 
 function Payment() {
-    // const state = useSelector((state) => state);
-    // {state.cart.map(
-    //     (item) => item.qty > 0 && <BillItems data={item} />,
-    // )}
+    const state = useSelector((state) => state);
+    let Total = state.cart.reduce(
+        (acc, item) => acc + Number(item.qty) * Number(item.price),
+        50,
+    );
+
     async function handlePayment(e) {
+        // console.log(Total);
         e.preventDefault();
 
         const API_URL = 'http://localhost:5000/api/razor/';
-        const orderUrl = `${API_URL}order`; //
+        const orderUrl = `${API_URL}order/${Total}`;
         const response = await Axios.get(orderUrl);
         const { data } = response;
 
@@ -73,7 +76,7 @@ function Payment() {
             handler: async (response) => {
                 try {
                     const paymentId = response.razorpay_payment_id;
-                    const url = `${API_URL}capture/${paymentId}`; //
+                    const url = `${API_URL}capture/${paymentId}/${Total}`;
                     const captureResponse = await Axios.post(url, {});
                     const successObj = JSON.parse(captureResponse.data);
                     const captured = successObj.captured;
@@ -83,6 +86,7 @@ function Payment() {
                 } catch (err) {
                     console.log(err);
                 }
+                // finally{}
             },
             theme: {
                 color: '#e46d47',
