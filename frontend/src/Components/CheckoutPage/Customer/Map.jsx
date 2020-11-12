@@ -20,6 +20,7 @@ const Map = () => {
     const [customerCoords, setCustomerCoords] = useState({});
     const [placeName, setPlaceName] = useState('');
     const data = JSON.parse(localStorage.getItem('Coordinates'));
+
     const [viewPort, setViewPort] = useState({
         width: 'inherit',
         height: 'inherit',
@@ -94,6 +95,7 @@ const Map = () => {
                 onViewportChange={(viewport) => {
                     setViewPort(viewport);
                 }}
+                // mapStyle="mapbox://styles/fahdshaikh/ckhed9kw802un1arxojsobt0m"
             >
                 <Marker
                     key={data.lat}
@@ -109,14 +111,10 @@ const Map = () => {
                     trackUserLocation={true}
                     showUserLocation={true}
                     onGeolocate={(e) => {
-                        // console.log(e);
-                        // console.log(e.coords.latitude);
                         setCustomerCoords({
                             lat: e.coords.latitude,
                             long: e.coords.longitude,
                         });
-                        // console.log(customerCoords);
-                        // Geolocation(customerCoords);
                     }}
                 />
 
