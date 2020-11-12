@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Hotel from './Hotel';
+import BillItems from './BillItems';
+import { useSelector } from 'react-redux';
 
 const Wrapper1 = styled.div`
     overflow: hidden;
@@ -132,12 +134,14 @@ const Info = styled.img`
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
+    const state = useSelector((state) => state);
 
     useEffect(() => {
         setOrders(JSON.parse(localStorage.getItem('cart')));
     }, []);
 
-    console.log(orders);
+    // console.log(orders);
+    // console.log(state);
 
     return (
         <>
@@ -149,7 +153,9 @@ const Orders = () => {
             <Wrapper2 className='container'>
                 <div className='row  text-left'>
                     <div className='col'>
-                        <div className='col'>orders</div>
+                        {state.cart.map(
+                            (item) => item.qty > 0 && <BillItems data={item} />,
+                        )}
                     </div>
                     <div class='w-100'></div>
                     <div className='col'>
@@ -216,7 +222,11 @@ const Orders = () => {
                             <Info src='/Icons/information.svg' alt='info' />
                         </div>
                         <div className='col-4 text-right pr-0 text-muted'>
-                            ₹ 181
+                            ₹
+                            {state.cart.reduce(
+                                (a, b) => a + b.qty * b.price,
+                                0,
+                            )}
                         </div>
                     </div>
                     <div class='w-100'></div>
@@ -247,7 +257,13 @@ const Orders = () => {
                 <div className='row'>
                     <div className='col row justify-content-between pr-0 mb-3 text-uppercase'>
                         <div className='col text-left'>To pay</div>
-                        <div className='col-4 text-right pr-0'>₹ 1000</div>
+                        <div className='col-4 text-right pr-0'>
+                            ₹
+                            {state.cart.reduce(
+                                (a, b) => a + b.qty * b.price,
+                                50,
+                            )}
+                        </div>
                         <div class='w-100'></div>
                     </div>
                 </div>
