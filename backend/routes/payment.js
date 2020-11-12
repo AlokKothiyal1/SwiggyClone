@@ -12,10 +12,10 @@ const instance = new Razorpay({
     key_secret: process.env.RAZOR_PAY_KEY_SECRET
 })
 
-router.get('/order', (req, res) => {
+router.get('/order/:amount', (req, res) => {
     try {
         const options = {
-            amount: 10 * 100,
+            amount: Number(req.params.amount),
             currency: 'INR',
             receipt: uuidv4(),
             payment_capture: 0
@@ -33,14 +33,14 @@ router.get('/order', (req, res) => {
     }
 })
 
-router.post("/capture/:paymentId", (req, res) => {
+router.post("/capture/:paymentId/:amount", (req, res) => {
     try {
         return request(
             {
                 method: "POST",
                 url: `https://${process.env.RAZOR_PAY_KEY_ID}:${process.env.RAZOR_PAY_KEY_SECRET}@api.razorpay.com/v1/payments/${req.params.paymentId}/capture`,
                 form: {
-                    amount: 10 * 100,
+                    amount: Number(req.params.amount),
                     currency: "INR",
                 },
             },
