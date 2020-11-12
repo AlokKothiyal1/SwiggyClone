@@ -20,6 +20,8 @@ const reducer = (state = initstate, action) => {
       );
       dec_cart = dec_cart.filter((item) => item.qty > 0);
       return { cart: dec_cart };
+    case types.EMPTY_CART:
+      return { cart: [] };
     default:
       return state;
   }
