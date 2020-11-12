@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Axios from 'axios';
+import axios from 'axios';
 import { useSelector } from 'react-redux';
 
 const Wrapper = styled.div`
@@ -85,8 +86,9 @@ function Payment() {
                     }
                 } catch (err) {
                     console.log(err);
+                } finally {
+                    handleData();
                 }
-                // finally{}
             },
             theme: {
                 color: '#e46d47',
@@ -95,6 +97,54 @@ function Payment() {
         const rzp1 = new window.Razorpay(options);
         rzp1.open();
     }
+
+    const handleData = () => {
+        const hotel = JSON.parse(localStorage.getItem('hotel'));
+        const customerId = JSON.parse(localStorage.getItem('customerData'))._id;
+        const address = JSON.parse(localStorage.getItem('CustomerCurrentLoc'));
+        const cart = JSON.parse(localStorage.getItem('cart'));
+
+        let items = [];
+
+        cart.map((item) => {
+            let temp = {
+                name: item.name,
+                price: item.price,
+                quantity: item.qty,
+                veg: item.veg,
+            };
+            items.push(temp);
+        });
+
+        let data = {
+            restaurant_id: hotel._id,
+            restaurant_name: hotel.name,
+            location: hotel.geometry.coordinates,
+            address_1: address.flat_no,
+            address_2: address.landmark,
+            img_url: hotel.img_url,
+            items: items,
+        };
+        // console.log(data);
+        console.log(customerId);
+
+        var config = {
+            method: 'patch',
+            url: `http://localhost:5000/api/customer/order/${customerId}`,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            data: data,
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            });
+    };
 
     return (
         <>
@@ -116,6 +166,7 @@ function Payment() {
                                 <button
                                     className='btn btn-success btn-sm col-3 ml-3 mt-4'
                                     onClick={handlePayment}
+                                    // onClick={handleData}
                                 >
                                     <img
                                         src='https://razorpay.com/assets/razorpay-logo-white.svg'
@@ -136,3 +187,29 @@ function Payment() {
 }
 
 export default Payment;
+
+// {
+//     "restaurant_id": "5fa924c3dfa8d35480cb4fc1",
+//     "restaurant_name": "Theobroma",
+//     "location": [
+//       77.62038,
+//       12.944652
+//     ],
+//     "address_1": "A-18 Prem Sagar",
+//     "address_2": "Opp. AXIS Bank",
+//     "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/qvufmpbe3o9pgbk7a7fx",
+//     "items": [
+//       {
+//         "name": "Paneer Burger",
+//         "price": 85,
+//         "quantity": 3,
+//         "veg": true
+//       },
+//       {
+//         "name": "Chicken Burger",
+//         "price": 95,
+//         "quantity": 4,
+//         "veg": false
+//       }
+//     ]
+// }
