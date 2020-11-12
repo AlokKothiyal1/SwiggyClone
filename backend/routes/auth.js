@@ -109,4 +109,44 @@ router.post('/login/verify',async(req,res)=>{
     }
 })
 
+router.patch('/order/:cust_id',async(req,res)=>{
+    const id = req.params.cust_id
+
+    const orders = {
+        restaurant_id : req.body.restaurant_id,
+        restaurant_name : req.body.restaurant_name,
+        location : {type:"Point",coordinates:req.body.location},
+        address_1 : req.body.address_1,
+        address_2 : req.body.address_2,
+        image_url : req.body.img_url,
+        items : req.body.items
+    }
+    try{
+
+        const customer = await Customer.findById(id);
+        customer.orders.push(orders);
+        customer.markModified('orders')
+        await customer.save()
+    } catch(err){
+        return res.status(400).send(err)
+    }
+
+    res.status(200).send("OK")
+
+})
+
+router.get('/order/:cust_id',async(req,res)=>{
+    const id = req.params.cust_id
+
+    try{
+        const customer = await Customer.findById(id)
+        if(customer){
+            return res.status(200).send(customer)
+        }
+        res.status(400).send("No Data found")
+    } catch(err){
+        res.status(400).send(err)
+    }
+})
+
 module.exports = router;
