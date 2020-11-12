@@ -1,6 +1,18 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const geoSchema = new Schema({
+    type:{
+        type:String,
+        default:"Point"
+    },
+    coordinates:{
+        type:[Number],
+        index:"2dsphere"
+    }
+})
+
+
 const itemSchema = new Schema({
     price:{
         type:Number,
@@ -32,6 +44,19 @@ const orderSchema = new Schema({
     image_url:{
         type:String,
         required:true
+    },
+    location:[geoSchema],
+    address_1:{
+        type:String,
+        default:""
+    },
+    address_2:{
+        type:String,
+        default:""
+    },
+    date:{
+        type:Date,
+        default: Date.now()
     },
     items:[itemSchema]
 
