@@ -15,7 +15,7 @@ const instance = new Razorpay({
 router.get('/order/:amount', (req, res) => {
     try {
         const options = {
-            amount: Number(req.params.amount),
+            amount: Number(req.params.amount)*100,
             currency: 'INR',
             receipt: uuidv4(),
             payment_capture: 0
@@ -40,7 +40,7 @@ router.post("/capture/:paymentId/:amount", (req, res) => {
                 method: "POST",
                 url: `https://${process.env.RAZOR_PAY_KEY_ID}:${process.env.RAZOR_PAY_KEY_SECRET}@api.razorpay.com/v1/payments/${req.params.paymentId}/capture`,
                 form: {
-                    amount: Number(req.params.amount),
+                    amount: Number(req.params.amount)*100,
                     currency: "INR",
                 },
             },
