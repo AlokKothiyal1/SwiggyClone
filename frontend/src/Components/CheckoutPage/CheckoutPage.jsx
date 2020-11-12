@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Login from './Customer/Login';
 import Address from './Customer/Address';
 import Payment from './Customer/Payment';
+import Orders from './Customer/Orders';
 import MainFooter from '../LandingPage/MainFooter';
 // import { useLocation } from 'react-router-dom';
 
@@ -53,7 +54,9 @@ const CheckoutPage = (props) => {
                                 )}
                             </div>
                         </div>
-                        <div className='col-4'>orders</div>
+                        <div className='col-4'>
+                            <Orders />
+                        </div>
                     </div>
                 </div>
             </Wrapper>
