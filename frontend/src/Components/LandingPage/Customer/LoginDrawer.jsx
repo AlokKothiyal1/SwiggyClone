@@ -6,6 +6,7 @@ import Drawer from '@material-ui/core/Drawer';
 import styled from 'styled-components';
 import TextField from '@material-ui/core/TextField';
 import axios from 'axios';
+// import env from 'react-dotenv';
 
 const Div = styled.div`
     font-family: sans-serif;
@@ -157,11 +158,15 @@ function OtpDrawer({ phoneNumber, setState, state }) {
     const handleVerify = () => {
         console.log(phoneNumber, otp);
         console.log(setState, state);
+
         axios
-            .post('http://localhost:5000/api/customer/login/verify', {
-                phoneNumber: phoneNumber,
-                otp: otp,
-            })
+            .post(
+                `${process.env.REACT_APP_API_URL}/api/customer/login/verify`,
+                {
+                    phoneNumber: phoneNumber,
+                    otp: otp,
+                },
+            )
             .then((res) => {
                 console.log(res);
                 alert('Login Successfull');
@@ -178,7 +183,7 @@ function OtpDrawer({ phoneNumber, setState, state }) {
 
     const getOtp = () => {
         axios
-            .post('http://localhost:5000/api/customer/login', {
+            .post(`${process.env.REACT_APP_API_URL}/api/customer/login`, {
                 phoneNumber: phoneNumber,
             })
             .then((res) => {

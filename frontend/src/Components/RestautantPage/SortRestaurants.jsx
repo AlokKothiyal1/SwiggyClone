@@ -62,7 +62,7 @@ const SortRestaurants = (props) => {
         console.log('just checking', filter);
         var config = {
             method: 'get',
-            url: `http://localhost:5000/api/restaurant?lat=12.9259&lng=77.6229&filter=${props.filter}`,
+            url: `${process.env.REACT_APP_API_URL}/api/restaurant?lat=12.9259&lng=77.6229&filter=${props.filter}`,
             headers: {},
         };
 
@@ -80,7 +80,7 @@ const SortRestaurants = (props) => {
     const allData = () => {
         var config = {
             method: 'get',
-            url: `http://localhost:5000/api/restaurant?lat=12.9259&lng=77.6229&filter=${filter}`,
+            url: `${process.env.REACT_APP_API_URL}/api/restaurant?lat=12.9259&lng=77.6229&filter=${filter}`,
             headers: {},
         };
 
@@ -103,7 +103,7 @@ const SortRestaurants = (props) => {
     const filterData = (sort) => {
         var config = {
             method: 'get',
-            url: `http://localhost:5000/api/restaurant?lat=12.9259&lng=77.6229&filter=${filter}&sort=${sort}`,
+            url: `${process.env.REACT_APP_API_URL}/api/restaurant?lat=12.9259&lng=77.6229&filter=${filter}&sort=${sort}`,
             headers: {},
         };
 
