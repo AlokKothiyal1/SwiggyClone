@@ -17,9 +17,7 @@ const Wrapper = styled.div`
   }
   .middlePart {
     background: #171a29;
-    position: sticky;
-    top: 30px;
-    z-index: 1;
+
     height: 245px;
     pointer-events: none;
   }

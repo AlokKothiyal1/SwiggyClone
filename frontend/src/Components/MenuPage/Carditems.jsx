@@ -50,7 +50,7 @@ const Wrapper = styled.div`
     margin-right: 0;
     border: none;
     background: white;
-    padding: 5%;
+    padding: 7%;
     color: green;
   }
 `;
@@ -62,7 +62,7 @@ function Carditems(props) {
   return (
     <Wrapper>
       <div className="row">
-        <div className="col-8">
+        <div className="col-9 justify-content-between">
           <div className="row">
             <div className="col-1">
               {data.veg ? (
@@ -91,18 +91,20 @@ function Carditems(props) {
                 </div>
               )}
             </div>
-
-            <div className="col-9 mt-2">
+            <div className="col-6 mt-2">
               <small className="mt-5 text-dark">{data.name}</small>
+            </div>
+
+            <div className="col-4 mt-2 pr-0 pl-0">
+              <div className="border">
+                <button className="buttoncart ml-2">-</button>
+                <button className="buttoncart">1</button>
+                <button className="buttoncart">+</button>
+              </div>
             </div>
           </div>
         </div>
-        <div className="col-4">
-          {/* <div className="addCart">
-                <button className="buttoncart">-</button>
-                <button className="buttoncart">1</button>
-                <button className="buttoncart">+</button>
-              </div> */}
+        <div className="col-3">
           <div className="mt-2">
             {" "}
             <small> ₹ {data.qty * data.price}</small>
