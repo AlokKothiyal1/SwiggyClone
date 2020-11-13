@@ -95,7 +95,7 @@ const Map = () => {
                 onViewportChange={(viewport) => {
                     setViewPort(viewport);
                 }}
-                // mapStyle="mapbox://styles/fahdshaikh/ckhed9kw802un1arxojsobt0m"
+                mapStyle='mapbox://styles/fahdshaikh/ckhed9kw802un1arxojsobt0m'
             >
                 <Marker
                     key={data.lat}
