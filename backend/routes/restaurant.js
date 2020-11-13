@@ -40,7 +40,8 @@ router.get('/', async(req,res)=>{
        })
     
     try{
-        if(filter){
+        
+        if(filter && filter!='all'){
             let temp= total.filter((item)=>item[filter]==true)
             total = temp
         }
