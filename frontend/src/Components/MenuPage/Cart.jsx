@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import EmptyCart from "./EmptyCart";
 import { useEffect } from "react";
 import { handlecartupdate } from "./Redux/action";
+import MiniCart from "./MiniCart";
 
 const Wrapper = styled.div`
   font-family: sans-serif;
@@ -135,6 +136,7 @@ function Cart() {
           <EmptyCart />
         )}
       </div>
+      <MiniCart />
     </Wrapper>
   );
 }
