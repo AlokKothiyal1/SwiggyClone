@@ -55,7 +55,7 @@ const AllRestaurants = () => {
                         }}
                     >
                         {' '}
-                        <SortRestaurants />
+                        <SortRestaurants filter={'all'} />
                     </div>
                 </div>
             </div>

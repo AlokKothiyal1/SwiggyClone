@@ -46,21 +46,29 @@ const Equal = styled.img`
     box-shadow: 0 1px 4px 0 rgba(40, 44, 63, 0.4);
 `;
 
-const SortRestaurants = () => {
+const SortRestaurants = (props) => {
+    console.log('props', props.filter, typeof props.filter);
+    // const { filter } = props.filter;
     const history = useHistory();
     const [data, setData] = useState([]);
     const [totalRestaurants, setTotalRestaurants] = useState();
+    const [filter, setFilter] = useState('');
+    // useEffect(() => {
+    // setFilter(props.filter);
+    // }, []);
 
     useEffect(() => {
+        setFilter(props.filter);
+        console.log('just checking', filter);
         var config = {
             method: 'get',
-            url: 'http://localhost:5000/api/restaurant?lat=12.9259&lng=77.6229',
+            url: `${process.env.REACT_APP_API_URL}/api/restaurant?lat=12.9259&lng=77.6229&filter=${props.filter}`,
             headers: {},
         };
 
         axios(config)
             .then(function (response) {
-                // console.log(response.data.current);
+                console.log('in use effect', response.data.current);
                 setData(response.data.current);
                 setTotalRestaurants(response.data.total);
             })
@@ -72,7 +80,7 @@ const SortRestaurants = () => {
     const allData = () => {
         var config = {
             method: 'get',
-            url: 'http://localhost:5000/api/restaurant?lat=12.9259&lng=77.6229',
+            url: `${process.env.REACT_APP_API_URL}/api/restaurant?lat=12.9259&lng=77.6229&filter=${filter}`,
             headers: {},
         };
 
@@ -95,7 +103,7 @@ const SortRestaurants = () => {
     const filterData = (sort) => {
         var config = {
             method: 'get',
-            url: `http://localhost:5000/api/restaurant?lat=12.9259&lng=77.6229&sort=${sort}`,
+            url: `${process.env.REACT_APP_API_URL}/api/restaurant?lat=12.9259&lng=77.6229&filter=${filter}&sort=${sort}`,
             headers: {},
         };
 

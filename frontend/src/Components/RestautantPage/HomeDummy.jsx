@@ -233,7 +233,10 @@ function HomeDummy() {
                                     {topPicks.map((item) => (
                                         <HotelCard data={item} key={item._id} />
                                     ))}
-                                    <MoreCard more={totalTopPicks - 5} />
+                                    <MoreCard
+                                        filter={'top_pick'}
+                                        more={totalTopPicks - 5}
+                                    />
                                 </div>
                             </Section>
                             <Section className='row'>
@@ -245,7 +248,10 @@ function HomeDummy() {
                                     {exclusive.map((item) => (
                                         <HotelCard data={item} key={item._id} />
                                     ))}
-                                    <MoreCard more={totalExclusive - 5} />
+                                    <MoreCard
+                                        filter={'exclusive'}
+                                        more={totalExclusive - 5}
+                                    />
                                 </div>
                             </Section>
                             <Section className='row'>
@@ -257,7 +263,10 @@ function HomeDummy() {
                                     {premium.map((item) => (
                                         <HotelCard data={item} key={item._id} />
                                     ))}
-                                    <MoreCard more={totalPremium - 5} />
+                                    <MoreCard
+                                        filter={'newly_added'}
+                                        more={totalPremium - 5}
+                                    />
                                 </div>
                             </Section>
                             <Section className='row'>
@@ -269,7 +278,10 @@ function HomeDummy() {
                                     {veg.map((item) => (
                                         <HotelCard data={item} key={item._id} />
                                     ))}
-                                    <MoreCard more={totalVeg - 5} />
+                                    <MoreCard
+                                        filter={'veg'}
+                                        more={totalVeg - 5}
+                                    />
                                 </div>
                             </Section>
                         </div>
