@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Login from '../RestautantPage/Customer/Login';
 
 const Wrapper = styled.div`
     overflow: hidden;
@@ -14,6 +13,10 @@ const Wrapper = styled.div`
 
     .logo-container {
         padding: 10px;
+    }
+
+    div {
+        // border: 1px solid red;
     }
 
     .nav-item {
@@ -54,52 +57,25 @@ const Li = styled.li`
     font-size: 14px;
 `;
 
-const Name = styled.div`
-    // border: 1px solid red;
-    font-size: 16px !important;
-    font-weight: 500 !important;
-    color: red !important;
-`;
-
-function CustomerName({ name }) {
-    if (name.length < 2) {
-        return <Login />;
-    } else {
-        return (
-            <Link
-                to='/my-account'
-                type='button'
-                className='nav-link btn btn-lg align-self-center text-capitalize'
-            >
-                <i className='fa fa-user mr-1'></i> {name}
-            </Link>
-        );
-    }
-}
-
-function CheckoutNavigator() {
+function MyAccNavigator() {
     const [name, setName] = useState('');
 
     useEffect(() => {
-        if (localStorage.getItem('customerData') == null) {
-            setName('');
-        } else {
-            setName(JSON.parse(localStorage.getItem('customerData')).name);
-        }
+        setName(JSON.parse(localStorage.getItem('customerData')).name);
     }, []);
     console.log(name);
 
     return (
         <Wrapper className='container-fluid shadow'>
-            <div className='row'>
-                <div className='col-4  mt-0'>
+            <div className='row justify-content-between'>
+                <div className='col-md-auto mt-0'>
                     <div className='logo-container-fluid'>
-                        <ul className='list-inline'>
+                        <ul className='list-inline ml-5'>
                             <li className='list-inline-item'>
                                 <Link
                                     to='/Restaurants'
                                     type='button'
-                                    className='btn btn-lg ml-5'
+                                    className='btn btn-lg ml-4'
                                 >
                                     <SVG
                                         viewBox='0 0 16 25'
@@ -114,30 +90,52 @@ function CheckoutNavigator() {
                                     </SVG>
                                 </Link>
                             </li>
-                            <Li className='list-inline-item '>
-                                Secure Checkout
+                            <Li className='list-inline-item text-uppercase'>
+                                My Account
                             </Li>
                         </ul>
                     </div>
                 </div>
-                <div className='col-8'>
-                    <div
-                        className='container'
-                        style={{
-                            width: '35%',
-                            justifyContent: 'right',
-                            float: 'right',
-                        }}
-                    >
-                        <nav className='d-flex '>
-                            <Name className='nav-item'>
+                <div className='col-lg-6'>
+                    <div className='container pl-0 pr-4'>
+                        <nav className='d-flex justify-content-end mr-5 '>
+                            <div className='nav-item '>
+                                <Link to='' className='nav-link'>
+                                    <i className='fa fa-search'></i> Search
+                                </Link>
+                            </div>
+                            <div className='nav-item'>
+                                <Link to='' className='nav-link'>
+                                    <img
+                                        src='percentage.svg'
+                                        alt='percentage'
+                                        width='20px'
+                                        style={{
+                                            marginBottom: '5px',
+                                        }}
+                                    />{' '}
+                                    Offer
+                                </Link>
+                            </div>
+                            <div className='nav-item'>
                                 <Link to='' className='nav-link'>
                                     <i className='fa fa-support'></i> Help
                                 </Link>
-                            </Name>
-                            <Name className='nav-item '>
-                                <CustomerName name={name} />
-                            </Name>
+                            </div>
+                            <div className='nav-item text-capitalize'>
+                                <button
+                                    type='button'
+                                    className='nav-link btn btn-lg align-self-center text-capitalize'
+                                    style={{ color: '#fc8019' }}
+                                >
+                                    <i className='fa fa-user mr-1'></i> {name}
+                                </button>
+                            </div>
+                            <div className='nav-item'>
+                                <Link to='' className='nav-link'>
+                                    <i className='fa fa-shopping-cart'></i> Cart
+                                </Link>
+                            </div>
                         </nav>
                     </div>
                 </div>
@@ -146,4 +144,4 @@ function CheckoutNavigator() {
     );
 }
 
-export default CheckoutNavigator;
+export default MyAccNavigator;

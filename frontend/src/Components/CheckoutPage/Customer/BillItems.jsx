@@ -6,15 +6,6 @@ const Wrapper = styled.div`
     div {
         // border: 1px solid red;
     }
-
-    // .veg {
-    //     border-radius: 50%;
-    //     margin-top: 2px;
-    //     width: 10px;
-    //     height: 10px;
-    //     background: green;
-    //     margin-left: 2px;
-    // }
 `;
 
 const Title = styled.div`
