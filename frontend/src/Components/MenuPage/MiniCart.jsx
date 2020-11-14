@@ -2,18 +2,23 @@ import React from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-// import MiniCartOrders from "../CheckoutPage/Customer/MiniCartOrders";
+import MiniCartOrders from "../CheckoutPage/Customer/MiniCartOrders";
 
 const Minicart = styled.div``;
 
-const handleCheckout = () => {};
-
 function MiniCart() {
   const state = useSelector((state) => state);
+  const history = useHistory();
+  const handleCheckout = () => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+    history.push("/CheckoutPage");
+  };
   return (
     <Minicart>
       <div className="container">
-        <div className="row">{/* <MiniCartOrders /> */}</div>
+        <div className="row">
+          <MiniCartOrders />
+        </div>
         <div className="row">
           <div className="col"></div>
         </div>
