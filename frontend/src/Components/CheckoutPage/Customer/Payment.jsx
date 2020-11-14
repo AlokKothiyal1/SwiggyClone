@@ -64,7 +64,7 @@ function Payment() {
         // console.log(Total);
         e.preventDefault();
 
-        const API_URL = 'http://localhost:5000/api/razor/';
+        const API_URL = `${process.env.REACT_APP_API_URL}/api/razor/`;
         const orderUrl = `${API_URL}order/${Total}`;
         const response = await Axios.get(orderUrl);
         const { data } = response;
