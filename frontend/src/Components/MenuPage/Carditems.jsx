@@ -62,12 +62,10 @@ function Carditems(props) {
   const dispatch = useDispatch();
 
   const handleInc = () => {
-    setqty(qty + 1);
     dispatch(handleIncrement(data._id));
   };
 
   const handleDec = () => {
-    setqty(qty - 1);
     dispatch(handledecrement(data._id));
   };
 
