@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Login from './Customer/Login';
-import Location from './Customer/Location';
 
 const Wrapper = styled.div`
     overflow: hidden;
@@ -15,6 +13,10 @@ const Wrapper = styled.div`
 
     .logo-container {
         padding: 10px;
+    }
+
+    div {
+        // border: 1px solid red;
     }
 
     .nav-item {
@@ -39,24 +41,6 @@ const Wrapper = styled.div`
     z-index: 1000;
 `;
 
-const Address = styled.button`
-    border: 0px;
-    margin: auto 0px;
-    background: #fff;
-    color: #686b78;
-    font-size: 14px;
-    font-weight: 300;
-    line-height: 1.2;
-    letter-spacing: 0;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    &:hover {
-        cursor: pointer;
-        color: #fc8019;
-    }
-`;
-
 const SVG = styled.svg`
     stroke: currentColor;
     fill: #fc8019;
@@ -66,54 +50,32 @@ const SVG = styled.svg`
     }
 `;
 
-function CustomerName({ name }) {
-    if (name.length < 2) {
-        return <Login />;
-    } else {
-        return (
-            <Link
-                to='/my-account'
-                type='button'
-                className='nav-link btn btn-lg align-self-center text-capitalize'
-            >
-                <i className='fa fa-user mr-1'></i> {name}
-            </Link>
-        );
-    }
-}
+const Li = styled.li`
+    font-weight: 700;
+    color: #3d4152;
+    text-transform: uppercase;
+    font-size: 14px;
+`;
 
-function Navigator() {
+function MyAccNavigator() {
     const [name, setName] = useState('');
-    const [placeName, setPlaceName] = useState('');
 
     useEffect(() => {
-        if (localStorage.getItem('customerData') == null) {
-            setName('');
-        } else {
-            setName(JSON.parse(localStorage.getItem('customerData')).name);
-        }
-
-        if (localStorage.getItem('Coordinates') == null) {
-            setPlaceName('Karnatak, India');
-        } else {
-            setPlaceName(
-                JSON.parse(localStorage.getItem('Coordinates')).place_name,
-            );
-        }
+        setName(JSON.parse(localStorage.getItem('customerData')).name);
     }, []);
     console.log(name);
 
     return (
         <Wrapper className='container-fluid shadow'>
-            <div className='row'>
-                <div className='col-lg-6  mt-0'>
+            <div className='row justify-content-between'>
+                <div className='col-md-auto mt-0'>
                     <div className='logo-container-fluid'>
-                        <ul className='list-inline'>
+                        <ul className='list-inline ml-5'>
                             <li className='list-inline-item'>
                                 <Link
                                     to='/Restaurants'
                                     type='button'
-                                    className='btn btn-lg'
+                                    className='btn btn-lg ml-4'
                                 >
                                     <SVG
                                         viewBox='0 0 16 25'
@@ -128,30 +90,15 @@ function Navigator() {
                                     </SVG>
                                 </Link>
                             </li>
-                            <li className='list-inline-item '>
-                                <Location />
-                            </li>
-                            <Address
-                                className='list-inline-item text-truncate text-capitalize'
-                                style={{ maxWidth: '230px' }}
-                            >
-                                {/* Karnatak, India */}
-                                {placeName}
-                            </Address>
-                            <li className='list-inline-item'>
-                                <button type='button' className='btn btn-sm'>
-                                    <i
-                                        className='fas fa-chevron-down'
-                                        style={{ color: '#fc8019' }}
-                                    ></i>
-                                </button>
-                            </li>
+                            <Li className='list-inline-item text-uppercase'>
+                                My Account
+                            </Li>
                         </ul>
                     </div>
                 </div>
                 <div className='col-lg-6'>
-                    <div className='container'>
-                        <nav className='d-flex'>
+                    <div className='container pl-0 pr-4'>
+                        <nav className='d-flex justify-content-end mr-5 '>
                             <div className='nav-item '>
                                 <Link to='' className='nav-link'>
                                     <i className='fa fa-search'></i> Search
@@ -176,8 +123,13 @@ function Navigator() {
                                 </Link>
                             </div>
                             <div className='nav-item text-capitalize'>
-                                {/* <Login /> */}
-                                <CustomerName name={name} />
+                                <button
+                                    type='button'
+                                    className='nav-link btn btn-lg align-self-center text-capitalize'
+                                    style={{ color: '#fc8019' }}
+                                >
+                                    <i className='fa fa-user mr-1'></i> {name}
+                                </button>
                             </div>
                             <div className='nav-item'>
                                 <Link to='' className='nav-link'>
@@ -192,4 +144,4 @@ function Navigator() {
     );
 }
 
-export default Navigator;
+export default MyAccNavigator;

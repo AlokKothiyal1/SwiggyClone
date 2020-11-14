@@ -66,12 +66,13 @@ function CustomerName({ name }) {
         return <Login />;
     } else {
         return (
-            <button
+            <Link
+                to='/my-account'
                 type='button'
-                className='nav-link btn btn-lg align-self-center text-capitalize '
+                className='nav-link btn btn-lg align-self-center text-capitalize'
             >
                 <i className='fa fa-user mr-1'></i> {name}
-            </button>
+            </Link>
         );
     }
 }

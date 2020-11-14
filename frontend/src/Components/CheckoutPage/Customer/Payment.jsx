@@ -125,7 +125,7 @@ function Payment() {
             img_url: hotel.img_url,
             items: items,
         };
-        // console.log(data);
+        console.log(data);
         console.log(customerId);
 
         var config = {
@@ -134,7 +134,7 @@ function Payment() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            data: data,
+            data: JSON.stringify(data),
         };
 
         axios(config)
