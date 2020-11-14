@@ -95,7 +95,8 @@ function CheckoutNavigator() {
                     <div className='logo-container-fluid'>
                         <ul className='list-inline'>
                             <li className='list-inline-item'>
-                                <button
+                                <Link
+                                    to='/Restaurants'
                                     type='button'
                                     className='btn btn-lg ml-5'
                                 >
@@ -110,7 +111,7 @@ function CheckoutNavigator() {
                                             id='Swiggy_Filled'
                                         ></path>
                                     </SVG>
-                                </button>
+                                </Link>
                             </li>
                             <Li className='list-inline-item '>
                                 Secure Checkout

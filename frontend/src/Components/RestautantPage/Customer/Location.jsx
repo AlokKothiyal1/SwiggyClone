@@ -79,8 +79,6 @@ export default function TemporaryDrawer() {
                 className='btn btn-md text-capitalize'
                 onClick={toggleDrawer('left', true)}
             >
-                {/* {'Bangaluru'} */}
-                {/* {JSON.parse(localStorage.getItem('Coordinates')).area} */}
                 {area}
             </City>
             <Drawer
