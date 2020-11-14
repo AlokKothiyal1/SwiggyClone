@@ -110,9 +110,6 @@ const Container = () => {
                             <OrderCard />
                             <OrderCard />
                             <OrderCard />
-                            <OrderCard />
-                            <OrderCard />
-                            <OrderCard />
                         </div>
                     </div>
                 </div>

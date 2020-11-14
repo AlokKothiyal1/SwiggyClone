@@ -1,6 +1,7 @@
 import React from 'react';
 import MyAccNavigator from './MyAccNavigator';
 import Container from './Container';
+import MainFooter from '../LandingPage/MainFooter';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -54,7 +55,7 @@ const Edit = styled.button`
     margin-bottom: '20px';
 `;
 
-const MyAccount = () => {
+const MyAccountPage = () => {
     return (
         <>
             <MyAccNavigator />
@@ -106,8 +107,9 @@ const MyAccount = () => {
                     </div>
                 </div>
             </Wrapper>
+            <MainFooter />
         </>
     );
 };
 
-export default MyAccount;
+export default MyAccountPage;
