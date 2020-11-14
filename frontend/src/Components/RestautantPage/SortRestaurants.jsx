@@ -33,6 +33,8 @@ const Wrapper = styled.div`
     .filter {
         color: black;
     }
+
+    box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.15);
 `;
 
 const Equal = styled.img`
@@ -89,8 +91,7 @@ const SortRestaurants = (props) => {
                 // console.log(response.data.current);
                 setData(response.data.current);
                 history.push('/temp');
-                history.push('/');
-                // history.push('/Restaurants');
+                history.push('/Restaurants');
                 // history.goBack();
             })
             .catch(function (error) {

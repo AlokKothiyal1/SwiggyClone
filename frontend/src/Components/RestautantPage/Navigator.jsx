@@ -109,7 +109,11 @@ function Navigator() {
                     <div className='logo-container-fluid'>
                         <ul className='list-inline'>
                             <li className='list-inline-item'>
-                                <button type='button' className='btn btn-lg'>
+                                <Link
+                                    to='/Restaurants'
+                                    type='button'
+                                    className='btn btn-lg'
+                                >
                                     <SVG
                                         viewBox='0 0 16 25'
                                         height='49'
@@ -121,7 +125,7 @@ function Navigator() {
                                             id='Swiggy_Filled'
                                         ></path>
                                     </SVG>
-                                </button>
+                                </Link>
                             </li>
                             <li className='list-inline-item '>
                                 <Location />

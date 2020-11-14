@@ -244,21 +244,23 @@ function OtpDrawer({ phoneNumber, name, email, password, setState, state }) {
         console.log(phoneNumber, name, email, password, otp);
         console.log(setState, state);
         axios
-            .post('http://localhost:5000/api/customer/register/verify', {
-                otp: otp,
-                name: name,
-                email: email,
-                password: password,
-                phoneNumber: phoneNumber,
-            })
+            .post(
+                `${process.env.REACT_APP_API_URL}/api/customer/register/verify`,
+                {
+                    otp: otp,
+                    name: name,
+                    email: email,
+                    password: password,
+                    phoneNumber: phoneNumber,
+                },
+            )
             .then((res) => {
                 console.log(res.data);
                 alert('Registeration Successfull');
                 setState2({ ...state2, right: false });
                 setState({ ...state, right: false });
                 localStorage.setItem('customerData', JSON.stringify(res.data));
-                history.push('/');
-                // history.push('/Restaurants');
+                history.push('/Restaurants');
             })
             .catch((err) => {
                 console.log(err.response.data);
@@ -268,7 +270,7 @@ function OtpDrawer({ phoneNumber, name, email, password, setState, state }) {
 
     const getOtp = () => {
         axios
-            .post('http://localhost:5000/api/customer/register', {
+            .post(`${process.env.REACT_APP_API_URL}/api/customer/register`, {
                 phoneNumber: phoneNumber,
                 name: name,
                 email: email,

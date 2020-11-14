@@ -95,7 +95,8 @@ const Map = () => {
                 onViewportChange={(viewport) => {
                     setViewPort(viewport);
                 }}
-                mapStyle='mapbox://styles/fahdshaikh/ckhed9kw802un1arxojsobt0m'
+                // mapStyle='mapbox://styles/fahdshaikh/ckhed9kw802un1arxojsobt0m'
+                mapStyle='mapbox://styles/mapbox/light-v10'
             >
                 <Marker
                     key={data.lat}
@@ -147,3 +148,11 @@ const Map = () => {
 };
 
 export default Map;
+
+// https://api.mapbox.com/directions/v5/mapbox/driving/73.787679,18.633725;77.620895,12.946148?alternatives=false&geometries=geojson&steps=false&access_token=pk.eyJ1IjoiZmFoZHNoYWlraCIsImEiOiJja2gzYzB3a3YwaXlsMnJvaWJ3ZDdiYzBpIn0.EC5-vAFFL-32D0ZCkCkQFg
+
+// long:73.787679,18.633725;77.620895,12.946148
+// lat:18.633725
+
+// 0:77.620895
+// 1:12.946148

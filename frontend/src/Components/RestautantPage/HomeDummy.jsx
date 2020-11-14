@@ -45,6 +45,9 @@ const Wrapper = styled.div`
         background: #e46d47;
         margin-right: 15px;
         color: #fff;
+        &:hover {
+            color: #fff !important;
+        }
     }
 
     .content {
@@ -101,7 +104,7 @@ function HomeDummy() {
     const getData = (filter) => {
         var config = {
             method: 'get',
-            url: `http://localhost:5000/api/restaurant?lat=12.9259&lng=77.6229&filter=${filter}&page=1&limit=5`,
+            url: `${process.env.REACT_APP_API_URL}/api/restaurant?lat=12.9259&lng=77.6229&filter=${filter}&page=1&limit=5`,
             headers: {},
         };
 
@@ -144,7 +147,7 @@ function HomeDummy() {
                             <div className='border-left border-right border-bottom shadow topHeader pt-5'>
                                 <div className='item active' href='topPicks'>
                                     <div className='row' id='list'>
-                                        <div className='col-3 p-1 img-wrap'>
+                                        <div className='col-3 p-1 img-wrap nohover'>
                                             <img
                                                 src='https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_90,h_90/rng/md/carousel/production/vt13uzhjrg5r49kh9oru'
                                                 alt='Img1'

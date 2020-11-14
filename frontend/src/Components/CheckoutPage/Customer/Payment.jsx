@@ -130,7 +130,7 @@ function Payment() {
 
         var config = {
             method: 'patch',
-            url: `http://localhost:5000/api/customer/order/${customerId}`,
+            url: `${process.env.REACT_APP_API_URL}/api/customer/order/${customerId}`,
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -187,29 +187,3 @@ function Payment() {
 }
 
 export default Payment;
-
-// {
-//     "restaurant_id": "5fa924c3dfa8d35480cb4fc1",
-//     "restaurant_name": "Theobroma",
-//     "location": [
-//       77.62038,
-//       12.944652
-//     ],
-//     "address_1": "A-18 Prem Sagar",
-//     "address_2": "Opp. AXIS Bank",
-//     "img_url": "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/qvufmpbe3o9pgbk7a7fx",
-//     "items": [
-//       {
-//         "name": "Paneer Burger",
-//         "price": 85,
-//         "quantity": 3,
-//         "veg": true
-//       },
-//       {
-//         "name": "Chicken Burger",
-//         "price": 95,
-//         "quantity": 4,
-//         "veg": false
-//       }
-//     ]
-// }
