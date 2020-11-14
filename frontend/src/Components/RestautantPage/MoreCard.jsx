@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useHistory } from 'react-router-dom';
 
 const Wrapper = styled.div`
     // width: 10rem !important;
@@ -23,11 +24,21 @@ const Button = styled.button`
 `;
 
 const MoreCard = (props) => {
-    const { more } = props;
-    console.log(more);
+    const history = useHistory();
+    const { filter, more } = props;
+
+    const handleMore = () => {
+        console.log(more);
+        console.log(filter);
+        history.push({
+            pathname: '/ShowMoreRestaurants',
+            filter: filter,
+        });
+    };
+
     return (
         <>
-            <Wrapper className='justify-content-center'>
+            <Wrapper className='justify-content-center' onClick={handleMore}>
                 <Button type='button' className='btn'>
                     +{more} MORE
                 </Button>

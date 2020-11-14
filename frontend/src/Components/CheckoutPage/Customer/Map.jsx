@@ -19,13 +19,13 @@ const MAPBOX_TOKEN =
 const Map = () => {
     const [customerCoords, setCustomerCoords] = useState({});
     const [placeName, setPlaceName] = useState('');
-    const data = JSON.parse(localStorage.getItem('Coordinates'));
+    const data = JSON.parse(localStorage.getItem('Coordinates')); // Area Search Coordinates
 
     const [viewPort, setViewPort] = useState({
         width: 'inherit',
         height: 'inherit',
-        latitude: data.lat,
-        longitude: data.long,
+        latitude: data.lat, // 18.634363666666665  initially showing  Area Search Coordinates
+        longitude: data.long, // 73.78761533333333
         zoom: 10,
     });
 
@@ -57,7 +57,7 @@ const Map = () => {
 
         axios(config)
             .then(function (response) {
-                // console.log(response.data);
+                console.log('Geolocation', response.data);
                 getLocation(response.data.features);
             })
             .catch(function (error) {
@@ -78,7 +78,7 @@ const Map = () => {
                     long,
                     place_name,
                 };
-                // console.log(Coordinates);
+                console.log('getLocation', Coordinates);
                 localStorage.setItem(
                     'CustomerCurrentLoc',
                     JSON.stringify(Coordinates),
@@ -95,7 +95,8 @@ const Map = () => {
                 onViewportChange={(viewport) => {
                     setViewPort(viewport);
                 }}
-                // mapStyle="mapbox://styles/fahdshaikh/ckhed9kw802un1arxojsobt0m"
+                // mapStyle='mapbox://styles/fahdshaikh/ckhed9kw802un1arxojsobt0m'
+                mapStyle='mapbox://styles/mapbox/light-v10'
             >
                 <Marker
                     key={data.lat}
@@ -111,6 +112,7 @@ const Map = () => {
                     trackUserLocation={true}
                     showUserLocation={true}
                     onGeolocate={(e) => {
+                        console.log('onGeolocate', e);
                         setCustomerCoords({
                             lat: e.coords.latitude,
                             long: e.coords.longitude,
@@ -146,3 +148,11 @@ const Map = () => {
 };
 
 export default Map;
+
+// https://api.mapbox.com/directions/v5/mapbox/driving/73.787679,18.633725;77.620895,12.946148?alternatives=false&geometries=geojson&steps=false&access_token=pk.eyJ1IjoiZmFoZHNoYWlraCIsImEiOiJja2gzYzB3a3YwaXlsMnJvaWJ3ZDdiYzBpIn0.EC5-vAFFL-32D0ZCkCkQFg
+
+// long:73.787679,18.633725;77.620895,12.946148
+// lat:18.633725
+
+// 0:77.620895
+// 1:12.946148

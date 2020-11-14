@@ -161,10 +161,13 @@ function OtpDrawer({ phoneNumber, setState, state }) {
         // console.log(phoneNumber, otp);
         // console.log(setState, state);
         axios
-            .post('http://localhost:5000/api/customer/login/verify', {
-                phoneNumber: phoneNumber,
-                otp: otp,
-            })
+            .post(
+                `${process.env.REACT_APP_API_URL}/api/customer/login/verify`,
+                {
+                    phoneNumber: phoneNumber,
+                    otp: otp,
+                },
+            )
             .then((res) => {
                 console.log(res.data);
                 // alert('Login Successfull');
@@ -184,7 +187,7 @@ function OtpDrawer({ phoneNumber, setState, state }) {
 
     const getOtp = () => {
         axios
-            .post('http://localhost:5000/api/customer/login', {
+            .post(`${process.env.REACT_APP_API_URL}/api/customer/login`, {
                 phoneNumber: phoneNumber,
             })
             .then((res) => {
