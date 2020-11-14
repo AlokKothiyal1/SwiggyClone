@@ -2,26 +2,22 @@ import React from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import MiniCartOrders from "../CheckoutPage/Customer/MiniCartOrders";
 
-const Minicart = styled.div`
-  position: absolute;
-  top: -150px;
-  border: 3px solid red;
-  z-index: 950;
-`;
-
-const handleCheckout = () => {};
+const Minicart = styled.div``;
 
 function MiniCart() {
   const state = useSelector((state) => state);
+  const history = useHistory();
+  const handleCheckout = () => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+    history.push("/CheckoutPage");
+  };
   return (
     <Minicart>
       <div className="container">
         <div className="row">
-          <div className="col-3">
-            <img src={state.cart.img_url} alt="res" />
-          </div>
-          <div className="col-9 text-left"></div>
+          <MiniCartOrders />
         </div>
         <div className="row">
           <div className="col"></div>

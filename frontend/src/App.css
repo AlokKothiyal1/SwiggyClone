@@ -37,6 +37,6 @@
   }
 }
 
-.scrollspy-example::-webkit-scrollbar: {
+.scrollspy-example::-webkit-scrollbar {
   width: 0px;
 }
