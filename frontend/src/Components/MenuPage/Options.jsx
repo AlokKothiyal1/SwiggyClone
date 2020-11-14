@@ -6,7 +6,7 @@ const Wrapper = styled.div`
 
     p {
         margin-left: 13%;
-        font-size: 13px;
+        font-size: 18px;
         color: #282c3f;
         margin-bottom: 5px;
         font-weight: bold;
