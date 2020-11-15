@@ -128,6 +128,7 @@ router.patch('/order/:cust_id',async(req,res)=>{
         customer.markModified('orders')
         await customer.save()
     } catch(err){
+        console.log(err)
         return res.status(400).send(err)
     }
 
