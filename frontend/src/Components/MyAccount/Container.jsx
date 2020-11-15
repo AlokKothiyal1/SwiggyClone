@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import OrderCard from './OrderCard';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Wrapper = styled.div`
     font-family: ProximaNova, Arial, Helvetica Neue, sans-serif;
@@ -44,6 +45,26 @@ const Icon = styled.img`
 `;
 
 const Container = () => {
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+        const id = JSON.parse(localStorage.getItem('customerData'))._id;
+        var config = {
+            method: 'get',
+            url: `http://localhost:5000/api/customer/order/${id}`,
+            headers: {},
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                setData(response.data);
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            });
+    }, []);
+    console.log(data);
     return (
         <Wrapper>
             <div className='container-fluid p-5' style={{ width: '94%' }}>
@@ -105,11 +126,10 @@ const Container = () => {
                         </div>
                         <div className='w-100'></div>
                         <div className='col row-cols-1'>
-                            <OrderCard />
-                            <OrderCard />
-                            <OrderCard />
-                            <OrderCard />
-                            <OrderCard />
+                            {data.orders &&
+                                data.orders
+                                    .reverse()
+                                    .map((item) => <OrderCard data={item} />)}
                         </div>
                     </div>
                 </div>

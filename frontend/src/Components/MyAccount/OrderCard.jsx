@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import axios from 'axios';
+import BillItems from '../CheckoutPage/Customer/BillItems';
 
 const Wrapper = styled.div`
     font-family: ProximaNova, Arial, Helvetica Neue, sans-serif;
@@ -87,34 +89,30 @@ const Help = styled.button`
     }
 `;
 
-const OrderCard = () => {
+const OrderCard = (props) => {
+    const { data } = props;
+    console.log('orders', data);
     return (
         <Wrapper className='container text-left mb-5'>
             <div className='row p-4'>
                 <div className='col-3 pl-0'>
-                    <Image
-                        src='https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/bm5pgfhvkdfxx7jwpjhb'
-                        alt='Hotel'
-                    />
+                    <Image src={data.image_url} alt='Hotel' />
                 </div>
                 <div className='col row-cols-1 pl-0'>
                     <div className='col'>
                         <div className='row justify-content-between'>
                             <div className='col-md-auto'>
-                                <Name>hotel name</Name>
+                                <Name>{data.restaurant_name}</Name>
                             </div>
-                            <div className='col-md-auto text-right mt-1'>
-                                delivery
+                            <div className='col-md-auto text-right mt-1 text-muted'>
+                                Delivered
                                 <Tick src='Icons/checkmark.svg' alt='Check' />
                             </div>
                         </div>
                     </div>
                     <div className='col text-capitalize text-muted'>
-                        <Info>area</Info>
-                    </div>
-                    <div className='col text-capitalize text-muted'>
                         <Info>
-                            ORDER #37791202769 | Mon, Apr 8, 2019, 3:03 PM
+                            ORDER #{data._id} | {data.date}
                         </Info>
                     </div>
                     <div className='col text-uppercase mt-3'>
@@ -128,24 +126,22 @@ const OrderCard = () => {
                     style={{ border: '1px dashed #d4d5d9' }}
                 ></div>
                 <div className='col' style={{ fontWeight: 300 }}>
-                    BillItems(x1)
+                    {data.items.map((item) => (
+                        <BillItems data={item} />
+                    ))}
                 </div>
-                <div className='col' style={{ fontWeight: 300 }}>
-                    BillItems(x2)
-                </div>
-                <div className='col' style={{ fontWeight: 300 }}>
-                    BillItems(x3)
-                </div>
-                <div className='col' style={{ fontWeight: 300 }}>
-                    BillItems(x4)
-                </div>
+
                 <div className='col'>
                     <div className='row justify-content-end'>
                         <div
                             className='col-md-auto text-right text-muted'
                             style={{ borderTop: '2px solid #d4d5d9' }}
                         >
-                            Total Paid: ₹ 2000
+                            Total Paid: ₹{' '}
+                            {data.items.reduce(
+                                (a, b) => a + b.quantity * b.price,
+                                50,
+                            )}
                         </div>
                     </div>
                 </div>
@@ -171,4 +167,3 @@ const OrderCard = () => {
 };
 
 export default OrderCard;
-// img_url:"https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/bm5pgfhvkdfxx7jwpjhb"
