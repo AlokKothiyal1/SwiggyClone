@@ -12,7 +12,7 @@ export const Routes = () => {
   return (
     <>
       <Switch>
-        <Route path="/" exact render={() => <LandingPg />} /> */}
+        <Route path="/" exact render={() => <LandingPg />} />
         <Route path="/Restaurants" render={() => <Home />} />
         <Route path="/MenuPage" render={() => <MenuPages />} />
         <Route
