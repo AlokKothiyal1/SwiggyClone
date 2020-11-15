@@ -25,11 +25,13 @@ The user can view restaurants of different categories here & can filter them acc
 
 # MenuItem Page
 On this page, the user can select different dishes available in the selected restaurant & can add & edit them in the cart accordingly.
+
 ![alt text](https://github.com/AlokKothiyal1/SwiggyClone/blob/main/project_images/Screenshot%20from%202020-11-15%2022-40-54.png)
 
 
 # Orders Page
 The user can see his/her previous orders here with all the details( like timing, Restaurant detail, dished & their prices, etc.
+
 ![alt text](https://github.com/AlokKothiyal1/SwiggyClone/blob/main/project_images/Screenshot%20from%202020-11-15%2022-49-45.png)
 
 # Checkout Page
