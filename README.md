@@ -5,6 +5,21 @@ Project to achieve the pixel perfect clone of Swiggy official website.
 
 Sweggy.tk is the clone of Swiggy.com (Swiggy is India's largest and highest-valued online food ordering and delivery platform. 
 
+## Built With
+  -React
+  -Hooks
+  -Bootstrap
+  -Material UI
+  -Nodejs
+  -HTML 5 and CSS 3.
+  -Font awesome.
+  -MongoDB
+  -Express
+  -AWS
+  -Mapbox API
+  
+
+
 # Landing Page
 The User/Customer can search for his/her location here & can find restaurants in their locality( for the demo we have restaurant info of Koramangala, Bangalore only)
 # 
@@ -45,3 +60,51 @@ The Razorpay test integration is there for mocking the payment.
 
 
 On successful Payment, the Orders will be added to your previous orders list.
+
+
+## Getting Started
+
+**Just fork it and feel free to use it.**
+
+To get a local copy up and running follow these simple example steps.
+
+### Prerequisites
+
+Having a web browser, code editor and git.
+
+### Install
+
+Just fork it and you are good to go.
+
+## Authors
+
+👤 **Fahad Shaikh**
+
+- Github: [@Fahad Shaikh](https://github.com/fahdshaikh)
+- Linkedin: [Mohammed Fahad Shaikh](https://www.linkedin.com/in/fahdshaikh1997/)
+- Email: (fahadshaikh9776@gmail.com)
+
+👤 **Alok Kothiyal**
+
+- Github: [@alokkothiyal1](https://github.com/AlokKothiyal1)
+- Linkedin: [Alok Kothiyal](https://www.linkedin.com/in/alok-kothiyal-025191119/)
+- Email: (alokkothiyal08@gmail)
+
+👤 **Sheelu Krishnatrayi**
+
+- Github: [@Sheelu27](https://github.com/Sheelu27)
+- Linkedin: [Sheelu Krishnatrayi](https://www.linkedin.com/in/sheelu-krishnatrayi-87930a1a8/)
+- Email: (sheelukumari27@gmail.com)
+
+## 🤝 Contributing
+
+Contributions, issues and feature requests are welcome!
+
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## Acknowledgments
+
+- We take all the responsiblity for every signle line of code. The desgin is inspired from Swiggy.
