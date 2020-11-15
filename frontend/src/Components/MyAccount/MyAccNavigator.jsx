@@ -100,12 +100,12 @@ function MyAccNavigator() {
                     <div className='container pl-0 pr-4'>
                         <nav className='d-flex justify-content-end mr-5 '>
                             <div className='nav-item '>
-                                <Link to='' className='nav-link'>
+                                <Link className='nav-link'>
                                     <i className='fa fa-search'></i> Search
                                 </Link>
                             </div>
                             <div className='nav-item'>
-                                <Link to='' className='nav-link'>
+                                <Link className='nav-link'>
                                     <img
                                         src='percentage.svg'
                                         alt='percentage'
@@ -118,7 +118,7 @@ function MyAccNavigator() {
                                 </Link>
                             </div>
                             <div className='nav-item'>
-                                <Link to='' className='nav-link'>
+                                <Link className='nav-link'>
                                     <i className='fa fa-support'></i> Help
                                 </Link>
                             </div>
@@ -132,7 +132,7 @@ function MyAccNavigator() {
                                 </button>
                             </div>
                             <div className='nav-item'>
-                                <Link to='' className='nav-link'>
+                                <Link className='nav-link'>
                                     <i className='fa fa-shopping-cart'></i> Cart
                                 </Link>
                             </div>

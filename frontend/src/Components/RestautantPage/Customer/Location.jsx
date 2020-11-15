@@ -77,7 +77,8 @@ export default function TemporaryDrawer() {
             <City
                 type='button'
                 className='btn btn-md text-capitalize'
-                onClick={toggleDrawer('left', true)}
+                // onClick={toggleDrawer('left', true)}
+                onClick={toggleDrawer('left', false)}
             >
                 {area}
             </City>
