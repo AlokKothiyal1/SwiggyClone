@@ -7,14 +7,12 @@ Sweggy.tk is the clone of Swiggy.com (Swiggy is India's largest and highest-valu
 
 # Landing Page
 The User/Customer can search for his/her location here & can find restaurants in their locality( for the demo we have restaurant info of Koramangala, Bangalore only)
-![alt text](https://github.com/AlokKothiyal1/SwiggyClone/blob/main/project_images/Screenshot%20from%202020-11-15%2022-49-45.png)
-
-
+![alt text](https://github.com/AlokKothiyal1/SwiggyClone/blob/main/project_images/Screenshot%20from%202020-11-15%2022-40-19.png)
 
 # Login/SignUp
 The new users can signup with their details & for the demo purpose, the OTP is set to Be-
 `123456`
-![alt text](https://github.com/AlokKothiyal1/SwiggyClone/blob/main/project_images/Screenshot%20from%202020-11-15%2022-40-19.png)
+
 
 
 
