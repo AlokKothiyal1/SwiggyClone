@@ -8,6 +8,7 @@ Sweggy.tk is the clone of Swiggy.com (Swiggy is India's largest and highest-valu
 ## Built With
 
   - React
+  - Redux
   - Hooks
   - Bootstrap
   - Material UI
@@ -89,7 +90,7 @@ Just fork it and you are good to go.
 
 - Github: [@alokkothiyal1](https://github.com/AlokKothiyal1)
 - Linkedin: [Alok Kothiyal](https://www.linkedin.com/in/alok-kothiyal-025191119/)
-- Email: (alokkothiyal08@gmail)
+- Email: (alokkothiyal08@gmail.com)
 
 👤 **Sheelu Krishnatrayi**
 
