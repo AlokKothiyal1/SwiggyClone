@@ -1,8 +1,10 @@
 import "./App.css";
 import MiniCart from "./Components/MenuPage/MiniCart";
 import { Routes } from "./Routes/Routes";
+import { useDispatch, useSelector } from "react-redux";
 
 function App() {
+  const state = useSelector((state) => state);
   return (
     <div className="App">
       <Routes />
