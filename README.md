@@ -13,8 +13,7 @@ The User/Customer can search for his/her location here & can find restaurants in
 The new users can signup with their details & for the demo purpose, the OTP is set to Be-
 `123456`
 
-
-
+![alt text](https://github.com/AlokKothiyal1/SwiggyClone/blob/main/project_images/Screenshot%20from%202020-11-15%2023-44-44.png)
 
 # Restaurant Page
 The user can view restaurants of different categories here & can filter them according to his/her needs (Eg. By Pricing, By ratings, etc.)
