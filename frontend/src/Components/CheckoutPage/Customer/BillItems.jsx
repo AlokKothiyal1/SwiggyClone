@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { useDispatch, useSelector } from 'react-redux';
 
 const Wrapper = styled.div`
     div {
@@ -58,7 +57,11 @@ const BillItems = (props) => {
                                 marginBottom: '2px !important',
                             }}
                         >
-                            (x{data.qty})
+                            {data.qty ? (
+                                <>(x{data.qty})</>
+                            ) : (
+                                <>(x{data.quantity})</>
+                            )}
                         </small>
                     </Title>
                 </div>
@@ -66,7 +69,12 @@ const BillItems = (props) => {
                 <div className='col  col-md-auto '>
                     <p className='  text-muted m-0'>
                         {' '}
-                        ₹ {data.qty * data.price}
+                        ₹{' '}
+                        {data.qty ? (
+                            <>{data.qty * data.price}</>
+                        ) : (
+                            <>{data.quantity * data.price}</>
+                        )}
                     </p>
                 </div>
             </div>

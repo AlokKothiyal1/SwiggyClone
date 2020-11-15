@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import MyAccNavigator from './MyAccNavigator';
 import Container from './Container';
 import MainFooter from '../LandingPage/MainFooter';
 import styled from 'styled-components';
+import axios from 'axios';
 
 const Wrapper = styled.div`
     font-family: ProximaNova, Arial, Helvetica Neue, sans-serif;
@@ -56,6 +57,25 @@ const Edit = styled.button`
 `;
 
 const MyAccountPage = () => {
+    const [data, setData] = useState({});
+
+    useEffect(() => {
+        var config = {
+            method: 'get',
+            url: `http://localhost:5000/api/customer/order/5fb11ac4388d8b041ce607a9`,
+            headers: {},
+        };
+
+        axios(config)
+            .then(function (response) {
+                console.log(JSON.stringify(response.data));
+                setData(response.data);
+            })
+            .catch(function (error) {
+                console.log(error.response.data);
+            });
+    }, []);
+    console.log(data);
     return (
         <>
             <MyAccNavigator />
@@ -66,7 +86,7 @@ const MyAccountPage = () => {
                             <div className='row'>
                                 <div className='col'>
                                     <div className='col text-left text-capitalize'>
-                                        fahad
+                                        {data.name}
                                     </div>
                                     <div class='w-100'></div>
                                     <p
@@ -76,7 +96,7 @@ const MyAccountPage = () => {
                                             fontWeight: 300,
                                         }}
                                     >
-                                        1234567890{' '}
+                                        {data.phoneNumber}{' '}
                                         <span
                                             className='align-items-end mb-2 mr-3 ml-3'
                                             style={{
@@ -85,7 +105,7 @@ const MyAccountPage = () => {
                                         >
                                             |
                                         </span>{' '}
-                                        qwerty@gmail.com
+                                        {data.email}
                                     </p>
                                 </div>
                                 <div className='col-md-auto align-self-center'>
