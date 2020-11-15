@@ -6,17 +6,18 @@ Project to achieve the pixel perfect clone of Swiggy official website.
 Sweggy.tk is the clone of Swiggy.com (Swiggy is India's largest and highest-valued online food ordering and delivery platform. 
 
 ## Built With
-  -React
-  -Hooks
-  -Bootstrap
-  -Material UI
-  -Nodejs
-  -HTML 5 and CSS 3.
-  -Font awesome.
-  -MongoDB
-  -Express
-  -AWS
-  -Mapbox API
+
+  - React
+  - Hooks
+  - Bootstrap
+  - Material UI
+  - Nodejs
+  - HTML 5 and CSS 3.
+  - Font awesome.
+  - MongoDB
+  - Express
+  - AWS
+  - Mapbox API
   
 
 
