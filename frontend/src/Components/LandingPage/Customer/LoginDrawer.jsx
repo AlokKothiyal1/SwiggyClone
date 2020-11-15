@@ -156,8 +156,8 @@ function OtpDrawer({ phoneNumber, setState, state }) {
     };
 
     const handleVerify = () => {
-        console.log(phoneNumber, otp);
-        console.log(setState, state);
+        // console.log(phoneNumber, otp);
+        // console.log(setState, state);
 
         axios
             .post(
@@ -168,8 +168,8 @@ function OtpDrawer({ phoneNumber, setState, state }) {
                 },
             )
             .then((res) => {
-                console.log(res);
-                alert('Login Successfull');
+                // console.log(res);
+                // alert('Login Successfull');
                 setState2({ ...state2, right: false });
                 setState({ ...state, right: false });
                 localStorage.setItem('customerData', JSON.stringify(res.data));
@@ -187,8 +187,8 @@ function OtpDrawer({ phoneNumber, setState, state }) {
                 phoneNumber: phoneNumber,
             })
             .then((res) => {
-                console.log(res);
-                alert('OTP have been sent Customer Phone Number');
+                // console.log(res);
+                // alert('OTP have been sent Customer Phone Number');
                 setState2({ ...state2, right: true });
             })
             .catch((err) => {

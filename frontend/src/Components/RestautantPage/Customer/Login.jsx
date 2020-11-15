@@ -169,7 +169,7 @@ function OtpDrawer({ phoneNumber, setState, state }) {
                 },
             )
             .then((res) => {
-                console.log(res.data);
+                // console.log(res.data);
                 // alert('Login Successfull');
                 setState2({ ...state2, right: false });
                 setState({ ...state, right: false });
@@ -191,7 +191,7 @@ function OtpDrawer({ phoneNumber, setState, state }) {
                 phoneNumber: phoneNumber,
             })
             .then((res) => {
-                console.log(res);
+                // console.log(res);
                 // alert('OTP have been sent Customer Phone Number');
                 setState2({ ...state2, right: true });
             })

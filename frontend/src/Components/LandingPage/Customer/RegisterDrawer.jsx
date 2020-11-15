@@ -242,8 +242,8 @@ function OtpDrawer({ phoneNumber, name, email, password, setState, state }) {
     };
 
     const handleVerify = () => {
-        console.log(phoneNumber, name, email, password, otp);
-        console.log(setState, state);
+        // console.log(phoneNumber, name, email, password, otp);
+        // console.log(setState, state);
         axios
             .post(
                 `${process.env.REACT_APP_API_URL}/api/customer/register/verify`,
@@ -256,8 +256,8 @@ function OtpDrawer({ phoneNumber, name, email, password, setState, state }) {
                 },
             )
             .then((res) => {
-                console.log(res.data);
-                alert('Registeration Successfull');
+                // console.log(res.data);
+                // alert('Registeration Successfull');
                 setState2({ ...state2, right: false });
                 setState({ ...state, right: false });
                 localStorage.setItem('customerData', JSON.stringify(res.data));
@@ -278,10 +278,10 @@ function OtpDrawer({ phoneNumber, name, email, password, setState, state }) {
                 password: password,
             })
             .then((res) => {
-                console.log(res);
-                alert(
-                    `${name} Registered successfull \n OTP has been sent to ${phoneNumber}`,
-                );
+                // console.log(res);
+                // alert(
+                //     `${name} Registered successfull \n OTP has been sent to ${phoneNumber}`,
+                // );
                 setState2({ ...state2, right: true });
             })
             .catch((err) => {

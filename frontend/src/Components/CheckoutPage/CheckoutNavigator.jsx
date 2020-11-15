@@ -131,7 +131,7 @@ function CheckoutNavigator() {
                     >
                         <nav className='d-flex '>
                             <Name className='nav-item'>
-                                <Link to='' className='nav-link'>
+                                <Link className='nav-link'>
                                     <i className='fa fa-support'></i> Help
                                 </Link>
                             </Name>
