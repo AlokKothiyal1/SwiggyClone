@@ -198,13 +198,11 @@ function Menupages() {
           </div>{" "}
           <div
             className="col-5"
-            style={
-              {
-                //   maxHeight: "88.9vh",
-                //   overflowY: "scroll",
-                //   scrollbarWidth: "none",
-              }
-            }
+            style={{
+              maxHeight: "88.9vh",
+              overflowY: "scroll",
+              scrollbarWidth: "none",
+            }}
           >
             {data.categories.map((elem) => (
               <React.Fragment>
