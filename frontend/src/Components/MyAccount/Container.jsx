@@ -128,7 +128,6 @@ const Container = () => {
                         <div className='col row-cols-1'>
                             {data.orders &&
                                 data.orders
-                                    .reverse()
                                     .map((item) => <OrderCard data={item} />)}
                         </div>
                     </div>

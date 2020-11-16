@@ -4,7 +4,7 @@ const Customer = require('../models/customer')
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const dotenv = require('dotenv')
-let userOtp = 123456
+let userOtp = 415908
 
 dotenv.config();
 const client = require('twilio')(accountSid, authToken);

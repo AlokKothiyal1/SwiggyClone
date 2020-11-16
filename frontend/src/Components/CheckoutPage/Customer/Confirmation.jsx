@@ -28,10 +28,9 @@ function Confirmation() {
                         </h2>
                     </div>
                     <img
-                        src='Icons/Checkmark.svg'
+                        src='https://www.flaticon.com/svg/static/icons/svg/845/845646.svg'
                         alt='CheckMark'
                         style={{
-                            height: '80px',
                             width: '80px',
                             marginTop: '40px',
                         }}
