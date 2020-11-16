@@ -58,11 +58,12 @@ const Edit = styled.button`
 
 const MyAccountPage = () => {
     const [data, setData] = useState({});
+    const id = JSON.parse(localStorage.getItem('customerData'))._id;
 
     useEffect(() => {
         var config = {
             method: 'get',
-            url: `http://localhost:5000/api/customer/order/5fb11ac4388d8b041ce607a9`,
+            url: `http://localhost:5000/api/customer/order/${id}`,
             headers: {},
         };
 
