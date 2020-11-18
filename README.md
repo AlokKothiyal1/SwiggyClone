@@ -29,7 +29,7 @@ The User/Customer can search for his/her location here & can find restaurants in
 
 # Login/SignUp
 The new users can signup with their details & for the demo purpose, the OTP is set to Be-
-`123456`
+`415908`
 
 ![alt text](https://github.com/AlokKothiyal1/SwiggyClone/blob/main/project_images/Screenshot%20from%202020-11-15%2023-44-44.png)
 
