@@ -3,7 +3,7 @@ Project to achieve the pixel perfect clone of Swiggy official website.
 
 # Sweggy 
 
-Sweggy.tk is the clone of Swiggy.com (Swiggy is India's largest and highest-valued online food ordering and delivery platform. 
+Sweggy.ml is the clone of Swiggy.com (Swiggy is India's largest and highest-valued online food ordering and delivery platform. 
 
 ## Built With
 
